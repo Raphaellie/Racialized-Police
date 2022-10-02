@@ -1,0 +1,93 @@
+% This is a LaTeX template for a submission to AJPS
+% If you find any errors, please let me know: jjharden@unc.edu
+
+%==============Packages & Commands=================
+\usepackage{graphicx} % Graphics
+%\usepackage{colortbl} % add background color to cells
+% \usepackage{tabularx} % Tables
+%\usepackage{indentfirst} % Tells LaTeX to indent every paragraph 
+\usepackage{setspace} % To set line spacing
+%\usepackage[longnamesfirst]{natbib} % For references
+\usepackage{booktabs} % For tables
+\usepackage{rotating} % For sideways tables/figures
+\usepackage{amsmath} % Some math symbols
+\usepackage[margin = 1in]{geometry} % change margins
+\usepackage{subfig}
+\usepackage{mdwlist}
+%\usepackage{url}
+\usepackage{verbatim}
+%\urlstyle{same}
+\usepackage{multirow}
+%\bibpunct{(}{)}{;}{a}{}{,} % Reference punctuation 
+%\captionsetup[subfloat]{position = top, font = large} % For sub-figure captions
+
+% for dynamic citation from your Zotero Library
+\usepackage{csquotes}
+
+% default positioning of figures & tables
+\usepackage{float}
+\floatplacement{figure}{t}
+\floatplacement{table}{t}
+
+\usepackage[hang,flushmargin]{footmisc} % no indent for footnote
+
+% color setup for special texts
+\usepackage[usenames,dvipsnames]{xcolor}
+\definecolor{MyBlue}{rgb}{0.0,0.2,0.4}
+\definecolor{MyRed}{rgb}{0.4,0,0.1}
+\definecolor{MyGreen}{rgb}{0.18, 0.31, 0.31}
+\usepackage[bookmarks=true,bookmarksnumbered=true,colorlinks=true,
+linkcolor=MyBlue,citecolor=MyBlue,filecolor=MyBlue,urlcolor=MyBlue]{hyperref}
+
+\DeclareCaptionFont{MyBlue}{\color{MyBlue}}
+\captionsetup{
+	labelfont={bf, }, %labelfont={bf,MyBlue}
+	font=bf, 
+}
+
+% align table numbers by dot
+%\usepackage{siunitx}
+%\newcolumntype{d}{S[input-symbols = ()]}
+
+% Change main font 
+\usepackage{fontspec}
+% \usepackage[T1]{fontenc}
+% \usepackage[utf8]{inputenc}
+\usepackage{libertine} % libertine fouriernc {newtxtext,newtxmath}
+\usepackage[libertine]{newtxmath}
+\usepackage{inconsolata}  % use inconsolata as monospace font
+\setmonofont{inconsolata}
+%\setmainfont{}
+%\usepackage{kpfonts}
+
+%===============Some new commands==================
+\newcommand{\R}{\texttt{R}\space} % Write R in typewriter font
+\newcommand{\trans}[1]{{#1}^{\ensuremath{\mathsf{T}}}} % Transpose symbol 
+
+% set shortcut command for graph description
+\newcommand{\fnote}[1]{ 
+ \begingroup %\par
+  \raggedright \footnotesize \onehalfspacing 
+  \noindent  \textbf{Note}: #1 \par
+  \endgroup}
+  
+ % tentative command for inserting figures
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+  
+

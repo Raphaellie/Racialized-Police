@@ -1,0 +1,236 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{cms/global//global/global}
+    \entry{eganIdentityDependentVariable2020}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=21ec26247b654547a303386925c899e0}{%
+           family={Egan},
+           familyi={E\bibinitperiod},
+           given={Patrick\bibnamedelima J.},
+           giveni={P\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{21ec26247b654547a303386925c899e0}
+      \strng{fullhash}{21ec26247b654547a303386925c899e0}
+      \strng{bibnamehash}{21ec26247b654547a303386925c899e0}
+      \strng{authorbibnamehash}{21ec26247b654547a303386925c899e0}
+      \strng{authornamehash}{21ec26247b654547a303386925c899e0}
+      \strng{authorfullhash}{21ec26247b654547a303386925c899e0}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Political science generally treats identities such as ethnicity, religion, and sexuality as “unmoved movers” in the chain of causality. I hypothesize that the growing salience of partisanship and ideology as social identities in the United States, combined with the increasing demographic distinctiveness of the nation’s two political coalitions, is leading some Americans to engage in a self-categorization and depersonalization process in which they shift their identities toward the demographic prototypes of their political groups. Analyses of a representative panel data set that tracks identities and political affiliations over a 4-year span confirm that small but significant shares of Americans engage in identity switching regarding ethnicity, religion, sexual orientation, and class that is predicted by partisanship and ideology in their pasts, bringing their identities into alignment with their politics. These findings enrich and complicate our understanding of the relationship between identity and politics and suggest caution in treating identities as unchanging phenomena.}
+      \field{issn}{0092-5853, 1540-5907}
+      \field{journaltitle}{American Journal of Political Science}
+      \field{langid}{english}
+      \field{number}{3}
+      \field{shortjournal}{American Journal of Political Science}
+      \field{shorttitle}{Identity as {{Dependent Variable}}}
+      \field{title}{Identity as {{Dependent Variable}}: {{How Americans Shift Their Identities}} to {{Align}} with {{Their Politics}}}
+      \field{urlday}{24}
+      \field{urlmonth}{4}
+      \field{urlyear}{2021}
+      \field{volume}{64}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{699\bibrangedash 716}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1111/ajps.12496
+      \endverb
+      \verb{file}
+      \verb /Users/chaoyuewang/Zotero/storage/TPXJ7K63/Egan - 2020 - Identity as Dependent Variable How Americans Shif.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://onlinelibrary.wiley.com/doi/10.1111/ajps.12496
+      \endverb
+      \verb{url}
+      \verb https://onlinelibrary.wiley.com/doi/10.1111/ajps.12496
+      \endverb
+    \endentry
+    \entry{jeffersonSeeingBlueBlack2021}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=09f18031b894948635311a668a95ed47}{%
+           family={Jefferson},
+           familyi={J\bibinitperiod},
+           given={Hakeem},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=14a79a8d8d9b2342ef998d97ddb65a6d}{%
+           family={Neuner},
+           familyi={N\bibinitperiod},
+           given={Fabian\bibnamedelima G.},
+           giveni={F\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=135f47c76e92caa3fd38d06eec6fa01f}{%
+           family={Pasek},
+           familyi={P\bibinitperiod},
+           given={Josh},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{0b14608174d7c59ae0b6f72811be9767}
+      \strng{fullhash}{0b14608174d7c59ae0b6f72811be9767}
+      \strng{bibnamehash}{0b14608174d7c59ae0b6f72811be9767}
+      \strng{authorbibnamehash}{0b14608174d7c59ae0b6f72811be9767}
+      \strng{authornamehash}{0b14608174d7c59ae0b6f72811be9767}
+      \strng{authorfullhash}{0b14608174d7c59ae0b6f72811be9767}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Following racially charged events, individuals often diverge in perceptions of what happened and how justice should be served. Examining data gathered shortly after the 2014 shooting of Michael Brown in Ferguson, Missouri alongside reactions to a novel officer-involved shooting, we unpack the processes by which racial divisions emerge. Even in a controlled information environment, white Americans preferred information that supported claims of a justified shooting. Conversely, Black Americans preferred information that implied that the officer behaved inappropriately. These differences stemmed from two distinct processes: we find some evidence for a form of race-based motivated reasoning and strong evidence for belief updating based on racially distinct priors. Differences in summary judgments were larger when individuals identified strongly with their racial group or when expectations~about the typical behaviors of Black Americans and police diverged. The findings elucidate processes whereby individuals in different social groups come to accept differing narratives about contentious events.}
+      \field{issn}{1537-5927, 1541-0986}
+      \field{journaltitle}{Perspectives on Politics}
+      \field{langid}{english}
+      \field{month}{12}
+      \field{number}{4}
+      \field{shortjournal}{Perspect. polit.}
+      \field{shorttitle}{Seeing {{Blue}} in {{Black}} and {{White}}}
+      \field{title}{Seeing {{Blue}} in {{Black}} and {{White}}: {{Race}} and {{Perceptions}} of {{Officer-Involved Shootings}}}
+      \field{urlday}{23}
+      \field{urlmonth}{6}
+      \field{urlyear}{2022}
+      \field{volume}{19}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{1165\bibrangedash 1183}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1017/S1537592720003618
+      \endverb
+      \verb{urlraw}
+      \verb https://www.cambridge.org/core/product/identifier/S1537592720003618/type/journal_article
+      \endverb
+      \verb{url}
+      \verb https://www.cambridge.org/core/product/identifier/S1537592720003618/type/journal_article
+      \endverb
+    \endentry
+    \entry{kaneWhoPartyGroup2021}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=69b7028682271f75ac67fb0c662d0d6e}{%
+           family={Kane},
+           familyi={K\bibinitperiod},
+           given={John\bibnamedelima V.},
+           giveni={J\bibinitperiod\bibinitdelim V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=24ac0b3eb712e7a80d67d98da1ace21c}{%
+           family={Mason},
+           familyi={M\bibinitperiod},
+           given={Lilliana},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=826a8ed5c5348e6dec0a6e0a85e349b5}{%
+           family={Wronski},
+           familyi={W\bibinitperiod},
+           given={Julie},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3246727b5d4d8bc256b2544b590b64ca}
+      \strng{fullhash}{3246727b5d4d8bc256b2544b590b64ca}
+      \strng{bibnamehash}{3246727b5d4d8bc256b2544b590b64ca}
+      \strng{authorbibnamehash}{3246727b5d4d8bc256b2544b590b64ca}
+      \strng{authornamehash}{3246727b5d4d8bc256b2544b590b64ca}
+      \strng{authorfullhash}{3246727b5d4d8bc256b2544b590b64ca}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{day}{1}
+      \field{issn}{0022-3816, 1468-2508}
+      \field{journaltitle}{The Journal of Politics}
+      \field{langid}{english}
+      \field{month}{10}
+      \field{number}{4}
+      \field{shortjournal}{The Journal of Politics}
+      \field{shorttitle}{Who’s at the {{Party}}?}
+      \field{title}{Who’s at the {{Party}}? {{Group Sentiments}}, {{Knowledge}}, and {{Partisan Identity}}}
+      \field{urlday}{28}
+      \field{urlmonth}{10}
+      \field{urlyear}{2021}
+      \field{volume}{83}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{1783\bibrangedash 1799}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1086/715072
+      \endverb
+      \verb{file}
+      \verb /Users/chaoyuewang/Zotero/storage/3HP2DVSK/Kane et al. - 2021 - Who’s at the Party Group Sentiments, Knowledge, a.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.journals.uchicago.edu/doi/10.1086/715072
+      \endverb
+      \verb{url}
+      \verb https://www.journals.uchicago.edu/doi/10.1086/715072
+      \endverb
+    \endentry
+    \entry{masonUncivilAgreementHow2018}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=24ac0b3eb712e7a80d67d98da1ace21c}{%
+           family={Mason},
+           familyi={M\bibinitperiod},
+           given={Lilliana},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Chicago, Illinois; London}%
+      }
+      \list{publisher}{1}{%
+        {The University of Chicago Press}%
+      }
+      \strng{namehash}{24ac0b3eb712e7a80d67d98da1ace21c}
+      \strng{fullhash}{24ac0b3eb712e7a80d67d98da1ace21c}
+      \strng{bibnamehash}{24ac0b3eb712e7a80d67d98da1ace21c}
+      \strng{authorbibnamehash}{24ac0b3eb712e7a80d67d98da1ace21c}
+      \strng{authornamehash}{24ac0b3eb712e7a80d67d98da1ace21c}
+      \strng{authorfullhash}{24ac0b3eb712e7a80d67d98da1ace21c}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{isbn}{978-0-226-52440-5 978-0-226-52454-2}
+      \field{pagetotal}{183}
+      \field{shorttitle}{Uncivil Agreement}
+      \field{title}{Uncivil Agreement: How Politics Became Our Identity}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \keyw{21st century,Party affiliation,Political activists,Political parties,Politics and government,United States}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
