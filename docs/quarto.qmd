@@ -2,7 +2,7 @@
 title: "**Blues in Colors: Police Violence, Racial Representation, and White Attitude Change**"
 author: 
   - name: "Chaoyue Wang"
-    acknowledgement: "Express your thanks to those who helped improve this research along the way."
+    acknowledgement: "Express your thanks to those who help improve this research along the way."
 abstract: "Political behavior has been structured along group identities, and a racial division emerges regarding attitudes toward law enforcement and actions on police brutality. Compared to people of color, white Americans are more supportive of police agencies and more hesitant about reforming policing behavior even in the wake of multiple recent unjustified police-involved homicides. While existing studies attribute such difference to white's unique experiences with law enforcement, excessive white representation in police workforces has received little attention. Linking a nationally representative sample to their local context of racialized police and police violence, this study finds that more representation of black and Hispanic officers greatly enhances the process where white residents reacts to police violence by holding more critical view toward law enforcement. Interestingly, white representation in police has only weak effect of such. Findings here highlights group thinking as a contributing factor to today's racial divide on policing, and implicates how promoting racial diversity in police workforce can facilitate the outset of meaningful conversations on police violence."
 format: 
   pdf:
