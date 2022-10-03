@@ -66,29 +66,6 @@
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
-\newlength{\cslhangindent}
-\setlength{\cslhangindent}{1.5em}
-\newlength{\csllabelwidth}
-\setlength{\csllabelwidth}{3em}
-\newlength{\cslentryspacingunit} % times entry-spacing
-\setlength{\cslentryspacingunit}{\parskip}
-\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
- {% don't indent paragraphs
-  \setlength{\parindent}{0pt}
-  % turn on hanging indent if param 1 is 1
-  \ifodd #1
-  \let\oldpar\par
-  \def\par{\hangindent=\cslhangindent\oldpar}
-  \fi
-  % set entry spacing
-  \setlength{\parskip}{#2\cslentryspacingunit}
- }%
- {}
-\usepackage{calc}
-\newcommand{\CSLBlock}[1]{#1\hfill\break}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
-\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -159,6 +136,9 @@
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
+\usepackage[style = windycity,reflist,autocite = inline,backend =
+biber,url = false,doi = false,isbn = false]{biblatex}
+\addbibresource{references.bib}
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
@@ -166,16 +146,16 @@
   pdftitle={Blues in Colors: Police Violence, Racial Representation, and White Attitude Change},
   pdfauthor={Chaoyue Wang},
   colorlinks=true,
-  linkcolor={NavyBlue},
+  linkcolor={DeepSkyBlue4},
   filecolor={Maroon},
-  citecolor={Blue},
-  urlcolor={NavyBlue},
+  citecolor={DodgerBlue4},
+  urlcolor={SpringGreen4},
   pdfcreator={LaTeX via pandoc}}
 
 \title{\textbf{Blues in Colors: Police Violence, Racial Representation,
 and White Attitude Change}}
 \author{Chaoyue Wang}
-\date{September 30, 2022}
+\date{October 3, 2022}
 
 \begin{document}
 \maketitle
@@ -201,7 +181,7 @@ on police violence.
 \end{abstract}
 \captionsetup{labelfont = {bf,},font = small}
 
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, frame hidden, boxrule=0pt, interior hidden, borderline west={3pt}{0pt}{shadecolor}, enhanced, sharp corners]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, frame hidden, breakable, enhanced, interior hidden, sharp corners]}{\end{tcolorbox}}\fi
 
 \setstretch{1.5}
 \hypertarget{empirical-strategy}{%
@@ -214,9 +194,7 @@ and cultural analysis, but the rarity, even among the most polished
 writings in this profession, of a masterful balance of empirical
 indications and theoretical interpretations where raw, lukewarm data and
 their statistical derivatives are smoothly situated within a context of
-vivid, vibrant ideas (\protect\hyperlink{ref-abrajano2015}{Abrajano
-2015}; \protect\hyperlink{ref-egan2020}{Egan 2020};
-\protect\hyperlink{ref-mason2018}{Mason 2018}).
+vivid, vibrant ideas \autocite{egan2020,mason2018,abrajano2015}.
 
 Political behavior has been structured along group identities, and a
 racial division emerges regarding attitudes toward law enforcement and
@@ -394,29 +372,8 @@ R2 & 0.004 & 0.002 & 0.003\\
 \end{tabular}
 \end{table}
 
-\hypertarget{references}{%
-\section*{References}\label{references}}
-\addcontentsline{toc}{section}{References}
 
-\hypertarget{refs}{}
-\begin{CSLReferences}{1}{0}
-\leavevmode\vadjust pre{\hypertarget{ref-abrajano2015}{}}%
-Abrajano, Marisa. 2015. {``Reexamining the {``}Racial Gap{''} in
-Political Knowledge.''} \emph{The Journal of Politics} 77(1): 44--54.
-\url{https://www.journals.uchicago.edu/doi/10.1086/678767}.
-
-\leavevmode\vadjust pre{\hypertarget{ref-egan2020}{}}%
-Egan, Patrick J. 2020. {``Identity as Dependent Variable: How Americans
-Shift Their Identities to Align with Their Politics.''} \emph{American
-Journal of Political Science} 64(3): 699--716.
-\url{https://onlinelibrary.wiley.com/doi/10.1111/ajps.12496}.
-
-\leavevmode\vadjust pre{\hypertarget{ref-mason2018}{}}%
-Mason, Lilliana. 2018. \emph{Uncivil Agreement: How Politics Became Our
-Identity}. Chicago, Illinois; London: The University of Chicago Press.
-
-\end{CSLReferences}
-
+\printbibliography[title=References]
 
 
 \end{document}

@@ -6,6 +6,7 @@ author:
 abstract: "Political behavior has been structured along group identities, and a racial division emerges regarding attitudes toward law enforcement and actions on police brutality. Compared to people of color, white Americans are more supportive of police agencies and more hesitant about reforming policing behavior even in the wake of multiple recent unjustified police-involved homicides. While existing studies attribute such difference to white's unique experiences with law enforcement, excessive white representation in police workforces has received little attention. Linking a nationally representative sample to their local context of racialized police and police violence, this study finds that more representation of black and Hispanic officers greatly enhances the process where white residents reacts to police violence by holding more critical view toward law enforcement. Interestingly, white representation in police has only weak effect of such. Findings here highlights group thinking as a contributing factor to today's racial divide on policing, and implicates how promoting racial diversity in police workforce can facilitate the outset of meaningful conversations on police violence."
 format: 
   pdf:
+    output-file: pdf/racialized-police.qmd
     documentclass: article
     fig_caption: yes
     fontsize: 11pt
@@ -26,22 +27,35 @@ format:
     fig-pos: t
     tbl-pos: t
     link-citations: true
-    colorlinks: true
-    linkcolor: NavyBlue
-    urlcolor: NavyBlue
     keep-tex: true
+    cite-method: biblatex
+    biblatexoptions: 
+      - style = windycity
+      - reflist
+      - autocite = inline
+      - backend = biber
+      - url = false
+      - doi = false
+      - isbn = false
+    colorlinks: true
+    citecolor: DodgerBlue4
+    linkcolor: DeepSkyBlue4
+    urlcolor: SpringGreen4
   html:
-    theme: cosmo # lumen journal flatly cosmo
-    fig-dpi: 400
+    theme: [journal,custom.scss] # lumen journal flatly cosmo
+    fig-dpi: 250
     number-sections: true
     code-tools: true
     toc: true
     toc-title: Overview
     toc-location: left
+    title-block-banner: '#f0f1f2'
+    title-block-banner-color: '#10378c'
     comments:
       hypothesis:
         theme: classic
-csl: apsa.csl
+
+# csl: chicago.csl
 editor: visual
 execute:
   echo: false
@@ -69,6 +83,7 @@ library(ggeffects)
 
 load(here('final objects.RData'))
 options(modelsummary_format_numeric_latex = "latex")
+table.output <- 'gt'
 ```
 
 # Empirical Strategy
@@ -108,14 +123,13 @@ fig.baseline
 modelsummary(
   models.divides,
   # output = 'tables/divide moderation.tex',
-  stars = TRUE,
+  stars = TRUE,output = table.output,
   gof_map = c("nobs", "r.squared"), 
   coef_map = c(
     "white1" = "Racial Divide",
     "white_rep" = 'White Imagery of Police',
     "white_rep:white1" = 'Racial Divide × White Imagery'),
-  notes = list('This is the note of your regression table.')) %>% 
-    kable_styling('basic','striped')
+  notes = list('This is the note of your regression table.')) 
 ```
 
 ```{r}
@@ -132,13 +146,12 @@ fig.divides
 #| tbl-cap: "Racial Imagery of Local Police Moderates Racial Reaction to Police Violence."
 modelsummary(
   models.reaction,
-    stars = TRUE,
+    stars = TRUE,output = table.output,
     gof_map = c("nobs", "r.squared"),
     coef_map = c( 'white_rep' = 'White Imagery of Police',
                   'pvd' = "Any Police Violence in 2020",
                   'white_rep:pvd' = "Police Violence × White Imagery"),
-    notes = list('This is the note of your regression table.') ) %>% 
-  kable_styling('basic','striped')
+    notes = list('This is the note of your regression table.') ) 
 ```
 
 ```{r}
@@ -164,15 +177,14 @@ fig.racial.component
 #| tbl-cap: "Racial Imagery of Local Police Moderates Whites' Attitudinal Response to Police Violence."
   modelsummary(
   models.racial.component,
-  stars = TRUE,
+  stars = TRUE, output = table.output,
   gof_map = c("nobs", "r.squared"),　
   coef_map = c( 'white_rep' = 'White Imagery of Police',
                 'pv_racePV Whites' = "PV Whites",
                 'pv_racePV POC' = "PV POC",
                 'white_rep:pv_racePV Whites' = "White Imagery × PV Whites",
                 'white_rep:pv_racePV POC' = "White Imagery × PV POC"),
-  notes = list('This is the note of your regression table.')) %>% 
-      kable_styling('basic','striped')
+  notes = list('This is the note of your regression table.'))
 ```
 
 # References
