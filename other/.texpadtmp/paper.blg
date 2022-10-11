@@ -1,0 +1,9 @@
+[0] Config.pm:307> INFO - This is Biber 2.17
+[0] Config.pm:310> INFO - Logfile is '/Users/chaoyuewang/Desktop/Racialized Police/other/.texpadtmp/paper.blg'
+[86] biber-darwin:340> INFO - === Thu Oct  6, 2022, 19:55:15
+[107] Biber.pm:418> INFO - Reading '/Users/chaoyuewang/Desktop/Racialized Police/other/.texpadtmp/paper.bcf'
+[213] Biber.pm:972> INFO - Found 3 citekeys in bib section 0
+[229] Biber.pm:4383> INFO - Processing section 0
+[243] Biber.pm:4574> INFO - Looking for bibtex file 'references.bib' for section 0
+[398] Utils.pm:409> ERROR - Cannot find 'references.bib'!
+[398] Biber.pm:135> INFO - ERRORS: 1

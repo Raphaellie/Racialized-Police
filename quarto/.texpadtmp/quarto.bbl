@@ -1,0 +1,169 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{jefferson2021}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=09f18031b894948635311a668a95ed47}{%
+           family={Jefferson},
+           familyi={J\bibinitperiod},
+           given={Hakeem},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=14a79a8d8d9b2342ef998d97ddb65a6d}{%
+           family={Neuner},
+           familyi={N\bibinitperiod},
+           given={Fabian\bibnamedelima G.},
+           giveni={F\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=135f47c76e92caa3fd38d06eec6fa01f}{%
+           family={Pasek},
+           familyi={P\bibinitperiod},
+           given={Josh},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{0b14608174d7c59ae0b6f72811be9767}
+      \strng{fullhash}{0b14608174d7c59ae0b6f72811be9767}
+      \strng{bibnamehash}{0b14608174d7c59ae0b6f72811be9767}
+      \strng{authorbibnamehash}{0b14608174d7c59ae0b6f72811be9767}
+      \strng{authornamehash}{0b14608174d7c59ae0b6f72811be9767}
+      \strng{authorfullhash}{0b14608174d7c59ae0b6f72811be9767}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Perspectives on Politics}
+      \field{langid}{english}
+      \field{month}{12}
+      \field{number}{4}
+      \field{title}{Seeing Blue in Black and White: Race and Perceptions of Officer-Involved Shootings}
+      \field{titlekey}{jefferson2021}
+      \field{volume}{19}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{pages}{1165\bibrangedash 1183}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1017/S1537592720003618
+      \endverb
+      \verb{urlraw}
+      \verb https://www.cambridge.org/core/product/identifier/S1537592720003618/type/journal_article
+      \endverb
+      \verb{url}
+      \verb https://www.cambridge.org/core/product/identifier/S1537592720003618/type/journal_article
+      \endverb
+    \endentry
+    \entry{peffley2007}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=5f577489f26fb933878e00e309359b80}{%
+           family={Peffley},
+           familyi={P\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=929d91378d9720f1a6c7399ce4650d4c}{%
+           family={Hurwitz},
+           familyi={H\bibinitperiod},
+           given={Jon},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{469df943d67f4f2e41396d8e4ed190cf}
+      \strng{fullhash}{469df943d67f4f2e41396d8e4ed190cf}
+      \strng{bibnamehash}{469df943d67f4f2e41396d8e4ed190cf}
+      \strng{authorbibnamehash}{469df943d67f4f2e41396d8e4ed190cf}
+      \strng{authornamehash}{469df943d67f4f2e41396d8e4ed190cf}
+      \strng{authorfullhash}{469df943d67f4f2e41396d8e4ed190cf}
+      \field{extraname}{1}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{American Journal of Political Science}
+      \field{langid}{english}
+      \field{month}{10}
+      \field{number}{4}
+      \field{title}{Persuasion and Resistance: Race and the Death Penalty in America}
+      \field{titlekey}{peffley2007}
+      \field{volume}{51}
+      \field{year}{2007}
+      \field{dateera}{ce}
+      \field{pages}{996\bibrangedash 1012}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1111/j.1540-5907.2007.00293.x
+      \endverb
+      \verb{urlraw}
+      \verb https://onlinelibrary.wiley.com/doi/10.1111/j.1540-5907.2007.00293.x
+      \endverb
+      \verb{url}
+      \verb https://onlinelibrary.wiley.com/doi/10.1111/j.1540-5907.2007.00293.x
+      \endverb
+    \endentry
+    \entry{peffley2010}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=5f577489f26fb933878e00e309359b80}{%
+           family={Peffley},
+           familyi={P\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=929d91378d9720f1a6c7399ce4650d4c}{%
+           family={Hurwitz},
+           familyi={H\bibinitperiod},
+           given={Jon},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Cambridge ; New York}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{469df943d67f4f2e41396d8e4ed190cf}
+      \strng{fullhash}{469df943d67f4f2e41396d8e4ed190cf}
+      \strng{bibnamehash}{469df943d67f4f2e41396d8e4ed190cf}
+      \strng{authorbibnamehash}{469df943d67f4f2e41396d8e4ed190cf}
+      \strng{authornamehash}{469df943d67f4f2e41396d8e4ed190cf}
+      \strng{authorfullhash}{469df943d67f4f2e41396d8e4ed190cf}
+      \field{extraname}{2}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{OCLC: ocn468978200}
+      \field{series}{Cambridge studies in public opinion and political psychology}
+      \field{title}{Justice in America: the separate realities of blacks and whites}
+      \field{titlekey}{peffley2010}
+      \field{year}{2010}
+      \field{dateera}{ce}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

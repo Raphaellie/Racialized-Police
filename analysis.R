@@ -36,8 +36,11 @@ results <- bind_rows( white.rep.impact, black.rep.impact,hisp.rep.impact) %>%
                           grepl("hisp_rep",term) ~ 'Hispanic'),
          term = factor(term, levels = c('White','Black','Hispanic')),
          outcome = case_when(grepl("decrease",outcome) ~ 'Decrease Police',
-                             grepl("increase",outcome) ~ 'Increase Police',
-                             grepl("safe",outcome) ~ 'Police Make R Feel Safe'))
+                   grepl("increase",outcome) ~ 'Increase Police',
+                   grepl("safe",outcome) ~ 'Police Make R Feel Safe') %>% 
+           factor(levels = c('Police Make R Feel Safe',
+                             'Increase Police','Decrease Police') ) )
+
 ## richer plot ---- 
 results %>% 
   ggplot(aes(x = term, y = estimate, ymax = conf.high, ymin = conf.low,
@@ -101,14 +104,14 @@ modelsummary(
 ## table ----
 
 models.divides <- list(
-  'Police Felt as Safe' = lm_robust(police_safe ~ white_rep*white + white_pop , data = cces, weights = weight),
-  'Increase Police' = lm_robust(police_increase ~ white_rep*white + white_pop, data = cces, weights = weight),
-  'Decrease Police' = lm_robust(police_decrease ~ white_rep*white + white_pop, data = cces, weights = weight)
+  'Police Felt as Safe' = lm_robust(police_safe ~ white_rep*white + white_pop , data = cces, weights = NULL),
+  'Increase Police' = lm_robust(police_increase ~ white_rep*white + white_pop, data = cces, weights = NULL),
+  'Decrease Police' = lm_robust(police_decrease ~ white_rep*white + white_pop, data = cces, weights = NULL)
   )
 
 modelsummary(
   models.divides,
-  output = 'tables/divides.tex',
+  # output = 'tables/divides.tex',
   stars = TRUE,
   gof_map = c("nobs", "r.squared"), 
   coef_map = c(
@@ -270,30 +273,21 @@ pv.inter2 <- function(dv){
                    , subset(cces, race == 1) %>%
                      mutate(pvd = as.factor(pvd))) 
 
-  values <- ggpredict(fit,terms = c("pv_race",'white_rep[0,0.5]')) 
+  values <- ggpredict(fit,terms = c("pv_race",'white_rep[0,0.5]')) %>% 
+    mutate(group2 = ifelse(group == 0 ,0, 0.5))
   values.a <- values %>% filter(x != 'PV Whites') %>% mutate(compare = "PV involves no whites" )
   values.b <- values %>% filter(x != 'PV POC') %>% mutate(compare = "PV involves whites" )
   
-  bind_rows(values.a,values.b) %>% 
-    ggplot(aes(group,predicted,ymax = conf.high, ymin = conf.low,
-               color = x)) +
-    geom_pointrange(position = position_dodge(width = 0.5))  + 
-    # facet_wrap(~compare,scales = 'free_x') + 
-    theme_light() + 
-    ylab('Linear Predicted Value') + 
-    xlab('White Imagery of Local Police') + 
-    scale_color_viridis_d(option = 'cividis',end = 0.8,
-                          name = 'Any Police Violence in 2020') +
-    theme(legend.position = 'bottom',
-          plot.subtitle = element_text(face= 'bold'),
-          aspect.ratio = 1) 
   
   plot <- 
     ggplot(values,
-           aes(group,predicted,ymax = conf.high, ymin = conf.low,
+           aes(group2,predicted,ymax = conf.high, ymin = conf.low,
                color = x)) +
-    geom_pointrange(position = position_dodge(width = 0.6))  + 
+    annotate('rect',xmin = 0.3,xmax = 0.7, ymax = Inf, ymin = -Inf,
+             alpha = 0.1) +
+    geom_pointrange(position = position_dodge(width = 0.4))  + 
     theme_light() + 
+    scale_x_continuous(breaks = c(0,0.5)) +
     ylab('Linear Predicted Value') + 
     xlab('White Imagery of Local Police') + 
     # scale_color_manual(values = c('black','gray60','steelblue3'),name = 'Police Violence by Race') + 
@@ -310,7 +304,6 @@ pv.increase <- pv.inter2('police_increase') +
   ggtitle(NULL,subtitle = 'Increase Police ')
 pv.decrease <- pv.inter2('police_decrease') + 
   ggtitle(NULL,subtitle = 'Decrease Police ')
-
 fig.racial.component <- 
 pv.safe + pv.increase + pv.decrease + 
   plot_layout(guides = 'collect') &
@@ -343,5 +336,5 @@ modelsummary(
   notes = list('This is the note of your regression table.'))
 
 # Save Workplace ---- 
-save.image("final objects.RData")
+save.image("quarto/final objects.RData")
 

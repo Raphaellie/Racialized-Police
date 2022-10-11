@@ -33,15 +33,16 @@ ggsave('figures/desc-lemas.pdf',width = 11,height = 11/3)
 fig.lemas.density <- 
 rp.df.long %>%
   ggplot(aes(x = imagery)) + 
-  geom_density(aes(imagery,fill = race == 'White'),alpha = 0.6,color = 'gray12') + 
+  geom_density(aes(imagery,fill = race == 'White'),alpha = 0.45,color = 'gray12') + 
   geom_vline(xintercept = 0, lty = 2, color = 'black') + 
   facet_wrap(~race,scales = 'free_x') + 
-  scale_fill_viridis_d(option = 'mako', end = 0.65, direction = 1) +
+  # scale_fill_viridis_d(option = 'mako', end = 0.65, direction = 1) +
+  scale_fill_manual(values = c('seagreen','steelblue')) +
   xlim(c(-0.5,0.5)) + 
   ylab(NULL) + xlab('Racial Imagery of Police Departments by Racial Group') +
   theme_bw() + 
   theme(legend.position  ='none',
-        aspect.ratio = 1,
+        aspect.ratio = 0.9,
         axis.text = element_text(color = 'gray10')) 
 fig.lemas.density
 
@@ -76,7 +77,7 @@ df <- countypop %>%
 
 fig.lemas.cover <- 
   plot_usmap(data = df,regions = 'counties',values = 'sampled',
-           size = 0.1,color ='gray40')  + 
+           size = 0.05,color ='gray40')  + 
   geom_polygon(data = us_map(regions = "states"),aes(x, y, group = group), 
                size = 1/4, fill = NA,color = "black") + 
   scale_fill_manual(values = c('white','lightskyblue3'),na.value = 'white',
@@ -87,6 +88,6 @@ fig.lemas.cover <-
 
 fig.lemas.cover
 
-ggsave('figures/lemas-map-ct.pdf',width = 9.6, height = 5)
+ggsave('figures/lemas-map-ct.pdf',width = 12, height = 4)
   
 

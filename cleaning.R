@@ -27,7 +27,7 @@ pv.df <- read_csv("input/fatal shootings/Mapping Police Violence.csv") %>%
 ## exclude those that happened after the start of CCES 2020
 pv.df <- pv.df %>% filter(date < as.Date('2020-9-29'))
   
-## get PV level from 2015 to 2019 ----
+## get PV level ----
 pv.df<- pv.df %>%
   filter(between(year,2020,2020)) %>% 
   group_by(state,city) %>% 
@@ -41,7 +41,8 @@ pv.df<- pv.df %>%
 
 ## descriptive viz
 pv.df %>% 
-  ggplot(aes(x = pv_black)) + 
+  ggplot(aes(x = pv)) + 
+  scale_x_continuous(breaks = c(0,1,2,5,10,20)) + 
   geom_histogram()
 
 # Local Democragphics ----
@@ -87,8 +88,6 @@ local.race <-
   mutate(pop = first(estimate),
          estimate = estimate / first(estimate)) %>% 
   pivot_wider(names_from = var,values_from = estimate) 
-
-
 
 # Racialized Police ---- 
 rp.df <- read_csv('input/LEMAS2016/LEMAS2016-cleaned.csv')
@@ -180,7 +179,7 @@ rp.df.long %>%
   scale_fill_viridis_d(option = 'mako', end = 0.65, direction = 1) +
   xlim(c(-0.5,0.5)) + theme_bw() + 
   theme(legend.position  ='none',
-        aspect.ratio = 1,
+        aspect.ratio = 0.8,
         axis.title = element_blank(),
         axis.text = element_text(color = 'gray10')) 
 
@@ -217,9 +216,9 @@ cces <-
 ## polish variables ---- 
 cces <- cces %>% 
   filter(!is.na(sworn)) %>% 
-  mutate(police_safe = (5 - police_safe) / 2,
-         police_increase = 3 - police_increase,
-         police_decrease = 3 - police_decrease,
+  mutate(police_safe = 2 - police_safe,
+         police_increase = 2 - police_increase,
+         police_decrease = 2 - police_decrease,
          pvd = as.numeric(pv > 0),# measure police violence on a binary basis
          white = factor(white) )
 

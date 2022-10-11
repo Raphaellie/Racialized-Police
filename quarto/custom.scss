@@ -1,0 +1,22 @@
+/*-- scss:defaults --*/
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,700&family=PT+Sans:wght@400;700&family=Rubik:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap');
+
+$font-family-sans-serif: "Rubik" !default;
+
+// $primary: #405a93;  
+// $navbar-bg: #2b396b ;  // #3e6695 #10378c #11233e #132e68 #405a93 #2b396b #111c51
+
+// theme 1: black front + blue highlight + light bg
+// $navbar-bg: #f0f1f2 ; 
+// $navbar-hl: #1034A6  ; // #002fa7 #0530ad
+
+// theme 2: blue bg + light font + gray highlight 
+// also set foreground as 'light'
+// $primary: #3e6695;  #10378c #11233e #132e68 #405a93 #2b396b
+// $navbar-bg: #2b396b ; 
+
+$font-size-root: 95%;
+
+
