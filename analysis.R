@@ -53,7 +53,7 @@ results %>%
   facet_wrap(~outcome,) +
   ylab('Coefficient Estimate') + 
   xlab('Racialized Imagery of Local Police') +
-  scale_colour_viridis_d(option = 'mako',end = 0.4) + 
+  scale_colour_viridis_d(option = 'viridis',end = 0.55) + 
   theme_sjplot() + 
   theme(legend.position = 'none',
         aspect.ratio = 0.8,
@@ -202,7 +202,8 @@ pv.inter <- function(dv){
     ylab('Linear Predicted Value') + 
     xlab('White Imagery of Local Police') + 
     scale_color_viridis_d(option = 'viridis',end = 0.6,
-                          name = 'Any Police Violence in 2020') +
+                          name = 'Any Police Violence in 2020',
+                          labels = c('No','Yes')) +
     theme(legend.position = 'bottom',
           plot.subtitle = element_text(face= 'bold'),
           aspect.ratio = 1) 

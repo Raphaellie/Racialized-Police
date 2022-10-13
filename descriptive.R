@@ -1,5 +1,6 @@
 # packages
 library(usmap)
+library(wesanderson)
 
 # Police Imagery in LEMAS2016 ----
 
@@ -36,8 +37,8 @@ rp.df.long %>%
   geom_density(aes(imagery,fill = race == 'White'),alpha = 0.45,color = 'gray12') + 
   geom_vline(xintercept = 0, lty = 2, color = 'black') + 
   facet_wrap(~race,scales = 'free_x') + 
-  # scale_fill_viridis_d(option = 'mako', end = 0.65, direction = 1) +
-  scale_fill_manual(values = c('seagreen','steelblue')) +
+  scale_fill_viridis_d(option = 'cividis',end = 0.7, name = "Respondent's Race",labels = c('Others','Non-Hispanic White')) +
+  # scale_fill_manual(values = c('seagreen','steelblue')) +
   xlim(c(-0.5,0.5)) + 
   ylab(NULL) + xlab('Racial Imagery of Police Departments by Racial Group') +
   theme_bw() + 
@@ -90,4 +91,52 @@ fig.lemas.cover
 
 ggsave('figures/lemas-map-ct.pdf',width = 12, height = 4)
   
+# Policing Attitudes in 20 CES ---- 
+
+attitudes <- cces %>% 
+  select(white, safe = police_safe,increase = police_increase,decrease = police_decrease) %>%
+  group_by(white) %>% 
+  summarise(across(everything(), 
+                   funs(mean = mean(., na.rm = T),sd = sd(., na.rm = T),n = sum(!is.na(.)))
+                   )) %>%
+  # tidying
+  pivot_longer(cols = 2:10, names_to = c('var','stat'),names_sep = '_') %>% 
+  pivot_wider(names_from ='stat') %>%
+  mutate(se = sd/sqrt(n),
+         ciup = mean + qnorm(.975)*se, 
+         cilow = mean - qnorm(.975)*se)
+
+fig.attitudes <- 
+attitudes %>% 
+  mutate(var = factor(var, levels = c('safe','increase','decrease'),
+                      labels = c('Police Make R Feel Safe',
+                                 'R Wants to Increase Police',
+                                 'R Wants to Decrease Police'))) %>% 
+  ggplot(aes(x = white, y = mean, ymin = cilow, ymax = ciup,fill = white)) + 
+  geom_bar(color = 'black',stat = 'identity',alpha = 0.6,position = 'dodge2',width = 0.7) +
+  geom_errorbar(position = position_dodge(width = 0.6),width = 0.2/2, size = 0.3) +
+  facet_wrap(~var, scales = 'free_y') + 
+  scale_fill_viridis_d(option = 'cividis',end = 0.7, name = "Respondent's Race",labels = c('Others','Non-Hispanic White')) +
+  # scale_fill_manual(values = (wes_palette('Darjeeling2'))) + 
+  scale_x_discrete(labels = c('Not White','White')) + 
+  geom_text(aes(label = round(mean,2)),color = 'gray5',
+             position=position_stack(vjust=0.5)) + 
+  theme_bw() + 
+  xlab("Respondent's Race") + ylab('Mean') + 
+  theme(legend.position = 'none',
+        # legend.background = element_rect(color = 'black',size = 1/3),
+        aspect.ratio = 0.9)
+
+fig.attitudes
+ 
+## in table form
+cces %>% 
+  select(white,police_safe, police_increase,police_decrease) %>%
+  mutate(white = ifelse(white == 1, 'White','Not White')) %>% 
+  rename(`Police Make R Feel Safe` = police_safe,
+         `R Wants to Increase Police` = police_increase,
+         `R Wants to Decrease Police` = police_decrease,) %>% 
+  datasummary_balance(~white,data = .,fmt = 3,
+                      notes = 'Notes: All respondents in 2020 CES.')
+
 

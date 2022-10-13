@@ -216,7 +216,7 @@ cces <-
 ## polish variables ---- 
 cces <- cces %>% 
   filter(!is.na(sworn)) %>% 
-  mutate(police_safe = 2 - police_safe,
+  mutate(police_safe = (4 - police_safe)  / 3,
          police_increase = 2 - police_increase,
          police_decrease = 2 - police_decrease,
          pvd = as.numeric(pv > 0),# measure police violence on a binary basis
