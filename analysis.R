@@ -43,8 +43,7 @@ results <- bind_rows( white.rep.impact, black.rep.impact,hisp.rep.impact) %>%
 
 ## richer plot ---- 
 results %>% 
-  ggplot(aes(x = term, y = estimate, ymax = conf.high, ymin = conf.low,
-             color = estimate > 0)) + 
+  ggplot(aes(x = term, y = estimate, ymax = conf.high, ymin = conf.low, color = term != 'White')) + 
   geom_hline(yintercept = 0, lty = 2, alpha = 0.6) + 
   geom_pointrange(position = position_dodge(width = 0.6)) + 
   geom_label(aes(label = round(estimate,2),
@@ -53,7 +52,7 @@ results %>%
   facet_wrap(~outcome,) +
   ylab('Coefficient Estimate') + 
   xlab('Racialized Imagery of Local Police') +
-  scale_colour_viridis_d(option = 'viridis',end = 0.55) + 
+  scale_colour_viridis_d(option = 'viridis',end = 0.5) + 
   theme_sjplot() + 
   theme(legend.position = 'none',
         aspect.ratio = 0.8,
