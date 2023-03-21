@@ -344,5 +344,5 @@ modelsummary(
   notes = list('This is the note of your regression table.'))
 
 # Save Workplace ---- 
-save.image("quarto/final objects.RData")
+save.image("docs/final objects.RData")
 
