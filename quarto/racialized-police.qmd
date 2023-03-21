@@ -1,20 +1,22 @@
 ---
-title: "**Shades of Blue: Racial Imagery of Police and White Attitudes toward Policing**"
+title: "**Shades of Blue: Racial Compositions of Police and Attitudes toward Policing**"
 author: "Chaoyue Wang^[Chaoyue R. Wang (<chyrwang@gmail.com>, `86-177-2387-5369`) is a senior student of Philosophy, Politics and Economics at Yuanpei College of Peking University, Beijing, China 100871. I sincerely thank Professor Yuchen Liu of the School of Government for his constructive criticism during the early stage of this study. Data, codes, and other documents necessary to reproduce the results reported in this study are openly available at <https://github.com/raphaellie/racialized-police>.]"
 abstract: |
-  Following the murder of George Floyd, whites and blacks again diverged in their perceptions of and reactions to the reality of police violence in the United States. Compared to people of color, white Americans are more supportive of police agencies and more hesitant about reforming policing behavior even in the wake of multiple recent police-involved fatla shootings. While existing works look into experiential and cultural differences between the two groups, this study examines the role of whites’ excessive representation in police workforce that fosters a “white imagery” of the profession. Can this racialized image of police officers activate in-group favoritism among whites but push blacks away? Merging the 2020 Cooperative Election Study with administrative sampling of local police departments, I find that given whites’ share of local population constant, a higher percentage of white officers in local police department is associated with more favorable feelings of police among whites, and a greater black-white divide in police attitudes. In the presence of police violence, a whiter police workforce also makes white residents more tolerant of police officers.
+  Following the murder of George Floyd, whites and blacks again diverged in their perceptions of and reactions to the reality of police violence in the United States. Compared to people of color, white Americans are more supportive of police agencies and more hesitant about reforming policing behavior even in the wake of multiple recent police-involved fatal shootings. While existing works look into experiential and cultural differences between the two groups, this study examines the role of whites’ excessive representation in police workforce that fosters a “white imagery” of the profession. Can this racialized image of police officers activate in-group favoritism among whites but push blacks away? Merging the 2020 Cooperative Election Study with administrative sampling of local police departments, I find that given whites’ share of local population constant, a higher percentage of white officers in local police department is associated with more favorable feelings of police among whites, and a greater black-white divide in police attitudes. In the presence of police violence, a whiter police workforce also makes white residents more tolerant of police officers.
 format: 
   pdf:
     documentclass: article
-    pdf-engine: lualatex
-    fig_caption: yes
+    pdf-engine: pdflatex
     fontsize: 12pt
+    # papersize: letter
     toc: false
+    toc-title: Contents
     indent: true
     number-sections: true
-    fontfamily: crimson
-    linestretch: 1.5
-    geometry: left = 1in, right = 1in, top = 1in, bottom = 1.5in
+    fig_caption: yes
+    fontfamily: libertine
+    linestretch: 1.2 #1.2
+    geometry: margin = 1.2in #1.3in
     include-before: 
       - \captionsetup{labelfont = bf, font = small} 
       - \AtBeginEnvironment{tabular}{\small}
@@ -22,50 +24,41 @@ format:
       - \urlstyle{tt}
     header-includes: 
       - \usepackage[scale = 0.75]{sourcecodepro}
+      - \usepackage{indentfirst}
       - \usepackage{etoolbox}
       - \usepackage{enumitem}
       - \setlist[description]{leftmargin=\parindent,labelindent=\parindent}
+      - \usepackage{etoc} \etocsettocstyle{}{}
+      # - \usepackage[toc,page]{appendix}
     fig-cap-location: bottom
     tbl-cap-location: top
     fig-pos: "tb"
     tbl-pos: "tb"
     link-citations: true
     keep-tex: true
-    # cite-method: biblatex
-    # biblatexoptions:
-    #   - style = windycity
-    #   - reflist
-    #   - autocite = inline
-    #   - backend = biber
-    #   - url = false
-    #   - doi = false
-    #   - isbn = false
     colorlinks: true
-    citecolor: NavyBlue
-    linkcolor: NavyBlue
-    urlcolor: Cyan4
+    citecolor: RoyalBlue4
+    linkcolor: RoyalBlue4
+    urlcolor: DeepSkyBlue4
     template-partials:
       - before-body.tex
+  
   html:
-    theme: lumen # lumen journal flatly cosmo simplex
+    theme: cosmo # lumen journal flatly cosmo simplex
     fig-dpi: 250
     number-sections: true
     code-tools: true
     toc: true
     toc-title: Overview
     toc-location: left
-    title-block-banner: false
-    # title-block-banner-color: '#10378c'
-    comments:
-      hypothesis:
-        theme: classic
-csl: ajps.csl
+    title-block-banner: true
+
+# csl: ajps.csl
 editor: visual
 execute:
   echo: false
   warning: false
-  # cache: true
-date: 'December 1, 2022'
+date: last-modified
 date-format: long
 editor_options: 
   chunk_output_type: console
@@ -100,7 +93,7 @@ table.output <- 'kableExtra'
 
 On May 25 of 2020, George Floyd, an unarmed 46-year-old African American man, was choked to death in Minneapolis, Minnesota while a white local police officer knelt on his neck for over nine minutes. This blatant instance of political brutality, along with multiple police-involved homicides under intense public scrutiny, brings about a national debate on how police and policing behavior should be constrained. Similar to many other issues in American politics, a racial cleavage emerges in the public's response to police violence. Compared to people of color, especially African Americans, whites are in general more approving of police performance, and more likely to regard fatal encounters with police as isolated incidents rather than indications of larger problems [@morin2016; @desilver]. In terms of proactive moves to address police brutality, whites are also less likely to support the Black Lives Matter movement or defunding the police to better finance other public programs [@thomas]. Behind this attitudinal gap on police is an extensive division between whites and blacks regarding their perception of the criminal justice system [@sigelman1997; @hurwitz2005; @peffley2010].
 
-Why do people of distinct racial identities come to divergent responses to the same institution? Some studies have emphasized the role of lived experiences of blacks and whites, with the former far more intensely scrutinized and confronted by law enforcement agencies during their life course [@peffley2010; @alvarado2020]. Prior information and expectations established from these experiences set apart the ways black and white citizens process events of police violence [@jefferson2021]. Attention is also called to the possibility that cultural or social processes can drive blacks and whites to different conclusions even in the face of similar information. For example, racial differences in attribution between structure versus agency may matter: whereas blacks tend to see police violence as product of institutional ills, whites are more likely to blame the persons killed for their wrongdoings, leaving views on police intact [@streeter2019; @israel-trummel2022].
+Nonetheless, popular media's impact on racial animus is theoretically and empirically ambiguous. On the one hand, correlations between media consumption and racial prejudice may simply reflect self-selection among individuals predisposed to those beliefs. In line with this, Dahl and DellaVigna (2009) examine modern violent film releases and find a reduction in same-day assaults due to the "voluntary incapacitation" of would-be offenders. Our analysis is motivated by the fact that race and ethnicity alone may be relatively crude indicators of how officers relate to civilians or behave on the job. Why do people of distinct racial identities come to divergent responses to the same institution? Some studies have emphasized the role of lived experiences of blacks and whites, with the former far more intensely scrutinized and confronted by law enforcement agencies during their life course [@peffley2010; @alvarado2020]. Prior information and expectations established from these experiences set apart the ways black and white citizens process events of police violence [@jefferson2021]. Attention is also called to the possibility that cultural or social processes can drive blacks and whites to different conclusions even in the face of similar information. For example, racial differences in attribution between structure versus agency may matter: whereas blacks tend to see police violence as product of institutional ills, whites are more likely to blame the persons killed for their wrongdoings, leaving views on police intact [@streeter2019; @israel-trummel2022].
 
 @jefferson2021 focus on how the incidents of police violence are themselves racialized in the public mind: indeed, all cases of fatal police encounters that received intense scrutiny from the public in 2020, like that of Jacob Blake and George Floyd, involve a black victim and a white officer. With these racial images in mind, whites and blacks engage in "race-based motivated reasoning", predisposed to blame black victims and white officers respectively as "an emotional or affective commitment" to defending their racial in-groups [@jefferson2021, p.1166]. In this sense, the racial gap in perceiving police exemplify the imbalance of racial dynamics within the practice of policing itself. Whites' imagination of blacks as criminal and violent is well documented, and is shown to affect whites' preferences on law enforcement [@hurwitz1997; @payne2001; @peffley2007]. Less examined, however, is the extent to which police officers are perceived by the public as a white profession.
 
@@ -143,7 +136,7 @@ To examine how racial imagery of local police shapes whites' perception of polic
 #| fig-cap: "**Attitudes toward Police by Race.** All respondents in 2020 CES. Black error bars at the top of columns indicate the 95% confidence interval of the estimated attitude. Within each attitudinal outcome, the difference between non-Hispanic whites and other respondents is significant at the level of 0.05. "
 #| fig-width: 10
 #| fig-asp: 0.33
-#| fig-pos: ht
+#| fig-pos: tb
 fig.attitudes
 ```
 
@@ -300,4 +293,15 @@ Since most data sources that capture detailed feelings and experiences with poli
 
 This study also generates practical implications for addressing police brutality in real life. Since people's perceptions of police and police violence are so strongly conditioned by whether they see local police as representative of themselves, it would help if we first repair the representation gap in police employment. This helps foster a non-racial imagination of police workforce so that people can approach the issue of police violence through a more pragmatic and less racialized perspective. Behind the veil of ignorance where police are not perceived as more of a agent of one race than another [@rawls1999], it is more likely that people with different racial identities can have a meaningful and honest conversation in full emancipation from racial tribalism.
 
-# References
+# References {.unnumbered}
+
+::: {#refs}
+:::
+
+```{=tex}
+\part*{Appendix}
+% \addcontentsline{toc}{part}{Appendix}
+\appendix
+% \localtableofcontents
+```
+# Data Descriptions

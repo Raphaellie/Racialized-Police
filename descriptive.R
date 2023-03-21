@@ -1,6 +1,7 @@
 # packages
 library(usmap)
 library(wesanderson)
+library(sjPlot)
 
 # Police Imagery in LEMAS2016 ----
 
@@ -37,11 +38,11 @@ rp.df.long %>%
   geom_density(aes(imagery,fill = race == 'White'),alpha = 0.45,color = 'gray12') + 
   geom_vline(xintercept = 0, lty = 2, color = 'black') + 
   facet_wrap(~race,scales = 'free_x') + 
-  scale_fill_viridis_d(option = 'cividis',end = 0.7, name = "Respondent's Race",labels = c('Others','Non-Hispanic White')) +
+  scale_fill_viridis_d(option = 'viridis',end = 0.7, name = "Respondent's Race",labels = c('Others','Non-Hispanic White')) +
   # scale_fill_manual(values = c('seagreen','steelblue')) +
   xlim(c(-0.5,0.5)) + 
   ylab(NULL) + xlab('Racial Imagery of Police Departments by Racial Group') +
-  theme_bw() + 
+  theme_sjplot() + 
   theme(legend.position  ='none',
         aspect.ratio = 0.9,
         axis.text = element_text(color = 'gray10')) 
@@ -116,12 +117,14 @@ attitudes %>%
   geom_bar(color = 'black',stat = 'identity',alpha = 0.6,position = 'dodge2',width = 0.7) +
   geom_errorbar(position = position_dodge(width = 0.6),width = 0.2/2, size = 0.3) +
   facet_wrap(~var, scales = 'free_y') + 
-  scale_fill_viridis_d(option = 'cividis',end = 0.7, name = "Respondent's Race",labels = c('Others','Non-Hispanic White')) +
+  scale_fill_viridis_d(option = 'viridis', end = 0.6, 
+                       name = "Respondent's Race",
+                       labels = c('Others','Non-Hispanic White')) +
   # scale_fill_manual(values = (wes_palette('Darjeeling2'))) + 
   scale_x_discrete(labels = c('Not White','White')) + 
   geom_text(aes(label = round(mean,2)),color = 'gray5',
              position=position_stack(vjust=0.5)) + 
-  theme_bw() + 
+  theme_sjplot() + 
   xlab("Respondent's Race") + ylab('Mean') + 
   theme(legend.position = 'none',
         # legend.background = element_rect(color = 'black',size = 1/3),

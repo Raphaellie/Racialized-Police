@@ -8,7 +8,7 @@
 ]{article}
 
 \usepackage{amsmath,amssymb}
-\usepackage[]{crimson}
+\usepackage[]{libertine}
 \usepackage{setspace}
 \usepackage{iftex}
 \ifPDFTeX
@@ -27,8 +27,7 @@
   \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
 \usepackage{xcolor}
-\usepackage[left = 1in, right = 1in, top = 1in, bottom =
-1.5in]{geometry}
+\usepackage[margin = 1.2in]{geometry}
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \setcounter{secnumdepth}{5}
 % Make \paragraph and \subparagraph free-standing
@@ -105,9 +104,11 @@
 \usepackage{makecell}
 \usepackage{xcolor}
 \usepackage[scale = 0.75]{sourcecodepro}
+\usepackage{indentfirst}
 \usepackage{etoolbox}
 \usepackage{enumitem}
 \setlist[description]{leftmargin=\parindent,labelindent=\parindent}
+\usepackage{etoc} \etocsettocstyle{}{}
 \makeatletter
 \makeatother
 \makeatletter
@@ -166,16 +167,16 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
-  pdftitle={Shades of Blue: Racial Imagery of Police and White Attitudes toward Policing},
+  pdftitle={Shades of Blue: Racial Compositions of Police and Attitudes toward Policing},
   pdfauthor={Chaoyue Wang},
   colorlinks=true,
-  linkcolor={NavyBlue},
+  linkcolor={RoyalBlue4},
   filecolor={Maroon},
-  citecolor={NavyBlue},
-  urlcolor={Cyan4},
+  citecolor={RoyalBlue4},
+  urlcolor={DeepSkyBlue4},
   pdfcreator={LaTeX via pandoc}}
 
-\title{\textbf{Shades of Blue: Racial Imagery of Police and White
+\title{\textbf{Shades of Blue: Racial Compositions of Police and
 Attitudes toward Policing}}
 \author{Chaoyue Wang\footnote{Chaoyue R. Wang
   (\href{mailto:chyrwang@gmail.com}{\nolinkurl{chyrwang@gmail.com}},
@@ -186,7 +187,7 @@ Attitudes toward Policing}}
   this study. Data, codes, and other documents necessary to reproduce
   the results reported in this study are openly available at
   \url{https://github.com/raphaellie/racialized-police}.}}
-\date{December 1, 2022}
+\date{March 20, 2023}
 
 \begin{document}
 \urlstyle{tt}
@@ -206,7 +207,7 @@ in their perceptions of and reactions to the reality of police violence
 in the United States. Compared to people of color, white Americans are
 more supportive of police agencies and more hesitant about reforming
 policing behavior even in the wake of multiple recent police-involved
-fatla shootings. While existing works look into experiential and
+fatal shootings. While existing works look into experiential and
 cultural differences between the two groups, this study examines the
 role of whites' excessive representation in police workforce that
 fosters a ``white imagery'' of the profession. Can this racialized image
@@ -234,9 +235,9 @@ workforce also makes white residents more tolerant of police officers.
 
 \urlstyle{tt}
 
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[borderline west={3pt}{0pt}{shadecolor}, enhanced, boxrule=0pt, breakable, sharp corners, interior hidden, frame hidden]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, borderline west={3pt}{0pt}{shadecolor}, interior hidden, enhanced, sharp corners, boxrule=0pt, breakable]}{\end{tcolorbox}}\fi
 
-\setstretch{1.5}
+\setstretch{1.2}
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
@@ -251,36 +252,46 @@ public's response to police violence. Compared to people of color,
 especially African Americans, whites are in general more approving of
 police performance, and more likely to regard fatal encounters with
 police as isolated incidents rather than indications of larger problems
-(\protect\hyperlink{ref-desilver}{Desilver, Lipka, and Fahmy 2020};
-\protect\hyperlink{ref-morin2016}{Morin and Stepler 2016}). In terms of
-proactive moves to address police brutality, whites are also less likely
-to support the Black Lives Matter movement or defunding the police to
-better finance other public programs
+(\protect\hyperlink{ref-morin2016}{Morin and Stepler 2016};
+\protect\hyperlink{ref-desilver}{Desilver, Lipka, and Fahmy 2020}). In
+terms of proactive moves to address police brutality, whites are also
+less likely to support the Black Lives Matter movement or defunding the
+police to better finance other public programs
 (\protect\hyperlink{ref-thomas}{Thomas and Horowitz 2020}). Behind this
 attitudinal gap on police is an extensive division between whites and
 blacks regarding their perception of the criminal justice system
-(\protect\hyperlink{ref-hurwitz2005}{Hurwitz and Peffley 2005};
-\protect\hyperlink{ref-peffley2010}{Peffley and Hurwitz 2010};
-\protect\hyperlink{ref-sigelman1997}{Sigelman et al. 1997}).
+(\protect\hyperlink{ref-sigelman1997}{Sigelman et al. 1997};
+\protect\hyperlink{ref-hurwitz2005}{Hurwitz and Peffley 2005};
+\protect\hyperlink{ref-peffley2010}{Peffley and Hurwitz 2010}).
 
-Why do people of distinct racial identities come to divergent responses
-to the same institution? Some studies have emphasized the role of lived
-experiences of blacks and whites, with the former far more intensely
-scrutinized and confronted by law enforcement agencies during their life
-course (\protect\hyperlink{ref-alvarado2020}{Alvarado 2020};
-\protect\hyperlink{ref-peffley2010}{Peffley and Hurwitz 2010}). Prior
-information and expectations established from these experiences set
-apart the ways black and white citizens process events of police
-violence (\protect\hyperlink{ref-jefferson2021}{Jefferson, Neuner, and
-Pasek 2021}). Attention is also called to the possibility that cultural
-or social processes can drive blacks and whites to different conclusions
+Nonetheless, popular media's impact on racial animus is theoretically
+and empirically ambiguous. On the one hand, correlations between media
+consumption and racial prejudice may simply reflect self-selection among
+individuals predisposed to those beliefs. In line with this, Dahl and
+DellaVigna (2009) examine modern violent film releases and find a
+reduction in same-day assaults due to the ``voluntary incapacitation''
+of would-be offenders. Our analysis is motivated by the fact that race
+and ethnicity alone may be relatively crude indicators of how officers
+relate to civilians or behave on the job. Why do people of distinct
+racial identities come to divergent responses to the same institution?
+Some studies have emphasized the role of lived experiences of blacks and
+whites, with the former far more intensely scrutinized and confronted by
+law enforcement agencies during their life course
+(\protect\hyperlink{ref-peffley2010}{Peffley and Hurwitz 2010};
+\protect\hyperlink{ref-alvarado2020}{Alvarado 2020}). Prior information
+and expectations established from these experiences set apart the ways
+black and white citizens process events of police violence
+(\protect\hyperlink{ref-jefferson2021}{Jefferson, Neuner, and Pasek
+2021}). Attention is also called to the possibility that cultural or
+social processes can drive blacks and whites to different conclusions
 even in the face of similar information. For example, racial differences
 in attribution between structure versus agency may matter: whereas
 blacks tend to see police violence as product of institutional ills,
 whites are more likely to blame the persons killed for their
 wrongdoings, leaving views on police intact
-(\protect\hyperlink{ref-israel-trummel2022}{Israel-Trummel and Streeter
-2022}; \protect\hyperlink{ref-streeter2019}{Streeter 2019}).
+(\protect\hyperlink{ref-streeter2019}{Streeter 2019};
+\protect\hyperlink{ref-israel-trummel2022}{Israel-Trummel and Streeter
+2022}).
 
 Jefferson, Neuner, and Pasek
 (\protect\hyperlink{ref-jefferson2021}{2021}) focus on how the incidents
@@ -304,7 +315,7 @@ by the public as a white profession.
 
 Will a ``whiter'' police receive higher approval among the white
 population it serves? More importantly, are whites less willing to
-update their beliefs in the face of police violence when such brutality
+update their beliefs in the face of olice violence when such brutality
 is perpetrated by a police body in which whites are excessively
 represented? Built upon the framework of group-based motivated reasoning
 proposed by Jefferson, Neuner, and Pasek
@@ -365,27 +376,26 @@ extensive literature of racial and ethnic politics also suggests that
 white attitudes on policing can be shaped by the racial appearances of
 police. In American politics, some policy domains are strongly
 associated with distinct racial groups in people's mind
-(\protect\hyperlink{ref-edsall1992}{Edsall and Edsall 1992};
-\protect\hyperlink{ref-mendelberg2001}{Mendelberg 2001};
+(\protect\hyperlink{ref-mendelberg2001}{Mendelberg 2001};
 \protect\hyperlink{ref-valentino2002}{Valentino, Hutchings, and White
-2002}), largely due to racial imageries that mass media choose in
-reference to social groups at stake
-(\protect\hyperlink{ref-dixon2000}{Dixon and Linz 2000};
-\protect\hyperlink{ref-gilens2009}{Gilens 2009};
-\protect\hyperlink{ref-gilliam2000}{Gilliam and Iyengar 2000}) . For
-example, racial minorities are perceived to be unfairly advantaged by
-social welfare programs, and African Americans in particular are
-frequently linked to the issue of crime or ``law and order''
-(\protect\hyperlink{ref-haney-luxf3pez2015}{Haney-López 2015};
-\protect\hyperlink{ref-winter2008}{Winter 2008}).
+2002}; \protect\hyperlink{ref-edsall1992}{Edsall and Edsall 1992}),
+largely due to racial imageries that mass media choose in reference to
+social groups at stake (\protect\hyperlink{ref-gilliam2000}{Gilliam and
+Iyengar 2000}; \protect\hyperlink{ref-dixon2000}{Dixon and Linz 2000};
+\protect\hyperlink{ref-gilens2009}{Gilens 2009}) . For example, racial
+minorities are perceived to be unfairly advantaged by social welfare
+programs, and African Americans in particular are frequently linked to
+the issue of crime or ``law and order''
+(\protect\hyperlink{ref-winter2008}{Winter 2008};
+\protect\hyperlink{ref-haney-luxf3pez2015}{Haney-López 2015}).
 
 Such racialized imageries of ostensibly non-racial categories open the
 door for racialized thinking to enter into a wide range of policy
-preferences (\protect\hyperlink{ref-tesler2012}{Tesler 2012},
-\protect\hyperlink{ref-tesler2016}{2016};
-\protect\hyperlink{ref-valentino2002}{Valentino, Hutchings, and White
-2002}; \protect\hyperlink{ref-winter2008}{Winter 2008}), allow
-politicians to strategically exploit racial sentiments using subtle cues
+preferences (\protect\hyperlink{ref-valentino2002}{Valentino, Hutchings,
+and White 2002}; \protect\hyperlink{ref-winter2008}{Winter 2008};
+\protect\hyperlink{ref-tesler2012}{Tesler 2012},
+\protect\hyperlink{ref-tesler2016}{2016}), allow politicians to
+strategically exploit racial sentiments using subtle cues
 (\protect\hyperlink{ref-mendelberg2001}{Mendelberg 2001}), and breed
 political cleavages along racial lines
 (\protect\hyperlink{ref-kinder2001}{Kinder and Winter 2001};
@@ -393,17 +403,17 @@ political cleavages along racial lines
 in the public perception, the attitudinal influence of racial imageries
 can still be moderated depending on whether the racial expressions
 conforms to or contradict the stereotypical beliefs that people have in
-store (\protect\hyperlink{ref-ahler2018}{Ahler and Sood 2018};
-\protect\hyperlink{ref-valentino2002}{Valentino, Hutchings, and White
-2002}). Given the power of race-group linkages in shaping public
-opinion, it would be a reasonable expectation that when a police agency
-has a greater presence of white officers in its overall workforce,
-thereby cultivating a ``white imagery'' of the profession, white
-residents within its jurisdiction will present more positive feelings
-toward the police's performance. In combination with the insights from
-studies on the symbolic value of descriptive representation, I
-hypothesize a positive link between white presence in police and white
-perceptions of policing:
+store (\protect\hyperlink{ref-valentino2002}{Valentino, Hutchings, and
+White 2002}; \protect\hyperlink{ref-ahler2018}{Ahler and Sood 2018}).
+Given the power of race-group linkages in shaping public opinion, it
+would be a reasonable expectation that when a police agency has a
+greater presence of white officers in its overall workforce, thereby
+cultivating a ``white imagery'' of the profession, white residents
+within its jurisdiction will present more positive feelings toward the
+police's performance. In combination with the insights from studies on
+the symbolic value of descriptive representation, I hypothesize a
+positive link between white presence in police and white perceptions of
+policing:
 
 \begin{description}
 \item[H1 (Perception Hypothesis)]
@@ -490,7 +500,7 @@ the other hand, in the wake of the murder of George Floyd murder in the
 June of 2020, the 2020 CES added to its questionnaire a battery of
 questions regarding the respondent's perception of policing.
 
-\begin{figure}[ht]
+\begin{figure}[tb]
 
 {\centering \includegraphics{racialized-police_files/figure-pdf/fig-attitudes-1.pdf}
 
@@ -720,12 +730,12 @@ Attitudes }\tabularnewline
 \toprule
   & Police Felt as Safe & Increase Police & Decrease Police\\
 \midrule
-Racial Divide & 0.389*** & 0.033** & -0.055***\\
- & (0.020) & (0.010) & (0.010)\\
-White Imagery of Police & -0.270*** & -0.006 & -0.010\\
- & (0.057) & (0.028) & (0.029)\\
-Racial Divide × White Imagery & 0.359*** & 0.020 & -0.041\\
- & (0.070) & (0.035) & (0.036)\\
+Racial Divide & 0.130*** & 0.033** & -0.055***\\
+ & (0.007) & (0.010) & (0.010)\\
+White Imagery of Police & -0.090*** & -0.006 & -0.010\\
+ & (0.019) & (0.028) & (0.029)\\
+Racial Divide × White Imagery & 0.120*** & 0.020 & -0.041\\
+ & (0.023) & (0.035) & (0.036)\\
 \midrule
 Observations & 39551 & 39597 & 39589\\
 R squared & 0.061 & 0.001 & 0.005\\
@@ -833,12 +843,12 @@ Violence }\tabularnewline
 \toprule
   & Police Felt as Safe & Increase Police & Decrease Police\\
 \midrule
-Any Police Violence in 2020 & -0.140*** & -0.057*** & 0.074***\\
- & (0.023) & (0.013) & (0.013)\\
-White Imagery of Police & 0.018 & -0.009 & -0.014\\
- & (0.054) & (0.029) & (0.029)\\
-Police Violence × White Imagery & 0.260** & 0.078+ & -0.142**\\
- & (0.083) & (0.045) & (0.045)\\
+Any Police Violence in 2020 & -0.047*** & -0.057*** & 0.074***\\
+ & (0.008) & (0.013) & (0.013)\\
+White Imagery of Police & 0.006 & -0.009 & -0.014\\
+ & (0.018) & (0.029) & (0.029)\\
+Police Violence × White Imagery & 0.087** & 0.078+ & -0.142**\\
+ & (0.028) & (0.045) & (0.045)\\
 \midrule
 Observations & 26016 & 26039 & 26036\\
 R squared & 0.004 & 0.002 & 0.003\\
@@ -900,16 +910,16 @@ Police Violence }\tabularnewline
 \toprule
   & Police Felt as Safe & Increase Police & Decrease Police\\
 \midrule
-PV Whites & -0.129*** & -0.039* & 0.056***\\
- & (0.030) & (0.016) & (0.016)\\
-PV POC & -0.152*** & -0.077*** & 0.093***\\
- & (0.029) & (0.016) & (0.016)\\
-White Imagery of Police & 0.015 & -0.013 & -0.010\\
- & (0.055) & (0.029) & (0.029)\\
-White Imagery × PV Whites & 0.196+ & -0.003 & -0.075\\
- & (0.107) & (0.057) & (0.057)\\
-White Imagery × PV POC & 0.327** & 0.162** & -0.210***\\
- & (0.106) & (0.058) & (0.058)\\
+PV Whites & -0.043*** & -0.039* & 0.056***\\
+ & (0.010) & (0.016) & \vphantom{1} (0.016)\\
+PV POC & -0.051*** & -0.077*** & 0.093***\\
+ & (0.010) & (0.016) & (0.016)\\
+White Imagery of Police & 0.005 & -0.013 & -0.010\\
+ & (0.018) & (0.029) & (0.029)\\
+White Imagery × PV Whites & 0.065+ & -0.003 & -0.075\\
+ & (0.036) & (0.057) & (0.057)\\
+White Imagery × PV POC & 0.109** & 0.162** & -0.210***\\
+ & (0.035) & (0.058) & (0.058)\\
 \midrule
 Observations & 26016 & 26039 & 26036\\
 R squared & 0.004 & 0.002 & 0.003\\
@@ -1058,21 +1068,21 @@ conversation in full emancipation from racial tribalism.
 \leavevmode\vadjust pre{\hypertarget{ref-ahler2018}{}}%
 Ahler, Douglas J., and Gaurav Sood. 2018. {``The Parties in Our Heads:
 Misperceptions about Party Composition and Their Consequences.''}
-\emph{The Journal of Politics} 80(3): 964--981.
-\url{https://www.journals.uchicago.edu/doi/10.1086/697253}.
+\emph{The Journal of Politics} 80 (3): 964--81.
+\url{https://doi.org/10.1086/697253}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-alvarado2020}{}}%
 Alvarado, Steven Elías. 2020. {``The Complexities of Race and Place:
 Childhood Neighborhood Disadvantage and Adult Incarceration for Whites,
 Blacks, and Latinos.''} \emph{Socius: Sociological Research for a
-Dynamic World} 6: 1--16.
-\url{http://journals.sagepub.com/doi/10.1177/2378023120927154}.
+Dynamic World} 6 (January): 1--16.
+\url{https://doi.org/10.1177/2378023120927154}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-cramer2020}{}}%
 Cramer, Katherine. 2020. {``Understanding the Role of Racism in
 Contemporary US Public Opinion.''} \emph{Annual Review of Political
-Science} 23(1): 153--169.
-\url{https://www.annualreviews.org/doi/10.1146/annurev-polisci-060418-042842}.
+Science} 23 (1): 153--69.
+\url{https://doi.org/10.1146/annurev-polisci-060418-042842}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-dawson1995}{}}%
 Dawson, Michael C. 1995. \emph{Behind the mule: race and class in
@@ -1080,15 +1090,15 @@ African-American politics}. 1. paperback print. Princeton, NJ: Princeton
 Univ. Press.
 
 \leavevmode\vadjust pre{\hypertarget{ref-desilver}{}}%
-Desilver, Drew, Michael Lipka, and Dalia Fahmy. 2020. {``10 things we
-know about race and policing in the u.s.''}
+Desilver, Drew, Michael Lipka, and Dalia Fahmy. 2020. {``10 Things We
+Know about Race and Policing in the u.s.''}
 \url{https://www.pewresearch.org/fact-tank/2020/06/03/10-things-we-know-about-race-and-policing-in-the-u-s/}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-dixon2000}{}}%
 Dixon, Travis L., and Daniel Linz. 2000. {``Overrepresentation and
 Underrepresentation of African Americans and Latinos as Lawbreakers on
-Television News.''} \emph{Journal of Communication} 50(2): 131--154.
-\url{https://academic.oup.com/joc/article/50/2/131-154/4110126}.
+Television News.''} \emph{Journal of Communication} 50 (2): 131--54.
+\url{https://doi.org/10.1111/j.1460-2466.2000.tb02845.x}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-edsall1992}{}}%
 Edsall, Thomas Byrne, and Mary D. Edsall. 1992. \emph{Chain reaction:
@@ -1097,9 +1107,9 @@ afterword}. 1. publ. New York, NY: Norton.
 
 \leavevmode\vadjust pre{\hypertarget{ref-gay2002}{}}%
 Gay, Claudine. 2002. {``Spirals of Trust? The Effect of Descriptive
-Representation on the Relationship between Citizens and Their
-Government.''} \emph{American Journal of Political Science} 46(4): 717.
-\url{https://www.jstor.org/stable/3088429?origin=crossref}.
+Representation on the Relationship Between Citizens and Their
+Government.''} \emph{American Journal of Political Science} 46 (4): 717.
+\url{https://doi.org/10.2307/3088429}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-gilens2009}{}}%
 Gilens, Martin. 2009. \emph{Why Americans hate welfare: race, media, and
@@ -1107,10 +1117,10 @@ the politics of antipoverty policy}. Chicago: University of Chicago
 Press.
 
 \leavevmode\vadjust pre{\hypertarget{ref-gilliam2000}{}}%
-Gilliam, Franklin D., and Shanto Iyengar. 2000. {``Prime suspects: The
-influence of local television news on the viewing public.''}
-\emph{American Journal of Political Science} 44(3): 560--573.
-\url{https://www.jstor.org/stable/2669264?origin=crossref}.
+Gilliam, Franklin D., and Shanto Iyengar. 2000. {``Prime Suspects: The
+Influence of Local Television News on the Viewing Public.''}
+\emph{American Journal of Political Science} 44 (3): 560--73.
+\url{https://doi.org/10.2307/2669264}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-haney-luxf3pez2015}{}}%
 Haney-López, Ian. 2015. \emph{Dog whistle politics: how coded racial
@@ -1120,52 +1130,49 @@ New York: Oxford University Press.
 \leavevmode\vadjust pre{\hypertarget{ref-hayes2017}{}}%
 Hayes, Matthew, and Matthew V. Hibbing. 2017. {``The Symbolic Benefits
 of Descriptive and Substantive Representation.''} \emph{Political
-Behavior} 39(1): 31--50.
-\url{http://link.springer.com/10.1007/s11109-016-9345-9}.
-
-\leavevmode\vadjust pre{\hypertarget{ref-hurwitz2005}{}}%
-Hurwitz, Jon, and Mark Peffley. 2005. {``Explaining the Great Racial
-Divide: Perceptions of Fairness in the U.S. Criminal Justice System.''}
-\emph{The Journal of Politics} 67(3): 762--783.
-\url{https://www.journals.uchicago.edu/doi/10.1111/j.1468-2508.2005.00338.x}.
+Behavior} 39 (1): 31--50.
+\url{https://doi.org/10.1007/s11109-016-9345-9}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-hurwitz1997}{}}%
-Hurwitz, Jon, and Mark Peffley. 1997. {``Public perceptions of race and
-crime: The role of racial stereotypes.''} \emph{American Journal of
-Political Science} 41(2): 375.
-\url{https://www.jstor.org/stable/2111769?origin=crossref}.
+Hurwitz, Jon, and Mark Peffley. 1997. {``Public Perceptions of Race and
+Crime: The Role of Racial Stereotypes.''} \emph{American Journal of
+Political Science} 41 (2): 375. \url{https://doi.org/10.2307/2111769}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-hurwitz2005}{}}%
+---------. 2005. {``Explaining the Great Racial Divide: Perceptions of
+Fairness in the U.S. Criminal Justice System.''} \emph{The Journal of
+Politics} 67 (3): 762--83.
+\url{https://doi.org/10.1111/j.1468-2508.2005.00338.x}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-israel-trummel2022}{}}%
 Israel-Trummel, Mackenzie, and Shea Streeter. 2022. {``Police Abuse or
 Just Deserts? Deservingness Perceptions and State Violence.''}
-\emph{Public Opinion Quarterly} 86(S1): 499--522.
-\url{https://academic.oup.com/poq/article/86/S1/499/6604560}.
+\emph{Public Opinion Quarterly} 86 (S1): 499--522.
+\url{https://doi.org/10.1093/poq/nfac017}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-jefferson2021}{}}%
 Jefferson, Hakeem, Fabian G. Neuner, and Josh Pasek. 2021. {``Seeing
 Blue in Black and White: Race and Perceptions of Officer-Involved
-Shootings.''} \emph{Perspectives on Politics} 19(4): 1165--1183.
-\url{https://www.cambridge.org/core/product/identifier/S1537592720003618/type/journal_article}.
+Shootings.''} \emph{Perspectives on Politics} 19 (4): 1165--83.
+\url{https://doi.org/10.1017/S1537592720003618}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-jones2016}{}}%
 Jones, Philip Edward. 2016. {``Constituents' Responses to Descriptive
 and Substantive Representation in Congress*: Constituents' Responses to
 Descriptive and Substantive Representation.''} \emph{Social Science
-Quarterly} 97(3): 682--698.
-\url{https://onlinelibrary.wiley.com/doi/10.1111/ssqu.12243}.
+Quarterly} 97 (3): 682--98. \url{https://doi.org/10.1111/ssqu.12243}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-kaslovsky2021}{}}%
 Kaslovsky, Jaclyn, Jon C. Rogowski, and Andrew R. Stone. 2021.
-{``Descriptive representation and public support for Supreme Court
-nominees.''} \emph{Political Science Research and Methods} 9(3):
-583--598.
-\url{https://www.cambridge.org/core/product/identifier/S2049847019000591/type/journal_article}.
+{``Descriptive Representation and Public Support for Supreme Court
+Nominees.''} \emph{Political Science Research and Methods} 9 (3):
+583--98. \url{https://doi.org/10.1017/psrm.2019.59}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-kinder2001}{}}%
-Kinder, Donald R., and Nicholas Winter. 2001. {``Exploring the racial
-divide: Blacks, whites, and opinion on national policy.''}
-\emph{American Journal of Political Science} 45(2): 439.
-\url{https://www.jstor.org/stable/2669351?origin=crossref}.
+Kinder, Donald R., and Nicholas Winter. 2001. {``Exploring the Racial
+Divide: Blacks, Whites, and Opinion on National Policy.''}
+\emph{American Journal of Political Science} 45 (2): 439.
+\url{https://doi.org/10.2307/2669351}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-lipsky1980}{}}%
 Lipsky, Michael. 1980. \emph{Street-level bureaucracy: dilemmas of the
@@ -1174,103 +1181,108 @@ individual in public services}. New York: Russell Sage Foundation.
 \leavevmode\vadjust pre{\hypertarget{ref-mansbridge1999}{}}%
 Mansbridge, Jane. 1999. {``Should Blacks Represent Blacks and Women
 Represent Women? A Contingent {"}Yes{"}.''} \emph{The Journal of
-Politics} 61(3): 628--657.
-\url{https://www.journals.uchicago.edu/doi/10.2307/2647821}.
+Politics} 61 (3): 628--57. \url{https://doi.org/10.2307/2647821}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-mendelberg2001}{}}%
-Mendelberg, Tali. 2001. \emph{The race card: Campaign strategy, implicit
-messages, and the norm of equality}. Princeton, N.J: Princeton
+Mendelberg, Tali. 2001. \emph{The Race Card: Campaign Strategy, Implicit
+Messages, and the Norm of Equality}. Princeton, N.J: Princeton
 University Press.
 
 \leavevmode\vadjust pre{\hypertarget{ref-morin2016}{}}%
-Morin, Rich, and Renee Stepler. 2016. {``The racial confidence gap in
-police performance.''}
+Morin, Rich, and Renee Stepler. 2016. {``The Racial Confidence Gap in
+Police Performance.''}
 \url{https://www.pewresearch.org/social-trends/2016/09/29/the-racial-confidence-gap-in-police-performance/}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-mutz2015}{}}%
-Mutz, Diana Carole. 2015. \emph{In-your-face politics: The consequences
-of uncivil media}. Princeton, New Jersey: Princeton University Press.
+Mutz, Diana Carole. 2015. \emph{In-Your-Face Politics: The Consequences
+of Uncivil Media}. Princeton, New Jersey: Princeton University Press.
 
 \leavevmode\vadjust pre{\hypertarget{ref-payne2001}{}}%
-Payne, B. Keith. 2001.
-{``\href{https://doi.org/10.1037/0022-3514.81.2.181}{Prejudice and
-perception: The role of automatic and controlled processes in
-misperceiving a weapon}.''} \emph{Journal of Personality and Social
-Psychology} 81(2): 181--192.
-
-\leavevmode\vadjust pre{\hypertarget{ref-peffley2010}{}}%
-Peffley, Mark, and Jon Hurwitz. 2010. \emph{Justice in america: The
-separate realities of blacks and whites}. Cambridge ; New York:
-Cambridge University Press.
+Payne, B. Keith. 2001. {``Prejudice and Perception: The Role of
+Automatic and Controlled Processes in Misperceiving a Weapon.''}
+\emph{Journal of Personality and Social Psychology} 81 (2): 181--92.
+\url{https://doi.org/10.1037/0022-3514.81.2.181}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-peffley2007}{}}%
 Peffley, Mark, and Jon Hurwitz. 2007. {``Persuasion and Resistance: Race
 and the Death Penalty in America.''} \emph{American Journal of Political
-Science} 51(4): 996--1012.
-\url{https://onlinelibrary.wiley.com/doi/10.1111/j.1540-5907.2007.00293.x}.
+Science} 51 (4): 996--1012.
+\url{https://doi.org/10.1111/j.1540-5907.2007.00293.x}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-peffley2010}{}}%
+---------. 2010. \emph{Justice in America: The Separate Realities of
+Blacks and Whites}. Cambridge Studies in Public Opinion and Political
+Psychology. Cambridge ; New York: Cambridge University Press.
 
 \leavevmode\vadjust pre{\hypertarget{ref-phillips2003}{}}%
 Phillips, Anne. 2003. \emph{The politics of presence: the political
-representation of gender, ethnicity, and race}. Repr. 2003. Oxford:
-Oxford Univ. Press.
+representation of gender, ethnicity, and race}. Repr. 2003. Oxford
+political theory. Oxford: Oxford Univ. Press.
 
 \leavevmode\vadjust pre{\hypertarget{ref-rawls1999}{}}%
-Rawls, John. 1999. \emph{A theory of justice}. Rev. ed. Cambridge, Mass:
+Rawls, John. 1999. \emph{A Theory of Justice}. Rev. ed. Cambridge, Mass:
 Belknap Press of Harvard University Press.
 
 \leavevmode\vadjust pre{\hypertarget{ref-sen2017}{}}%
 Sen, Maya. 2017. {``How Political Signals Affect Public Support for
 Judicial Nominations: Evidence from a Conjoint Experiment.''}
-\emph{Political Research Quarterly} 70(2): 374--393.
-\url{http://journals.sagepub.com/doi/10.1177/1065912917695229}.
+\emph{Political Research Quarterly} 70 (2): 374--93.
+\url{https://doi.org/10.1177/1065912917695229}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-sen2016}{}}%
 Sen, Maya, and Omar Wasow. 2016. {``Race as a Bundle of Sticks: Designs
-that Estimate Effects of Seemingly Immutable Characteristics.''}
-\emph{Annual Review of Political Science} 19(1): 499--522.
-\url{https://www.annualreviews.org/doi/10.1146/annurev-polisci-032015-010015}.
+That Estimate Effects of Seemingly Immutable Characteristics.''}
+\emph{Annual Review of Political Science} 19 (1): 499--522.
+\url{https://doi.org/10.1146/annurev-polisci-032015-010015}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-sigelman1997}{}}%
-Sigelman, Lee et al. 1997. {``Police Brutality and Public Perceptions of
-Racial Discrimination: A Tale of Two Beatings.''} \emph{Political
-Research Quarterly} 50(4): 777--791.
-\url{http://journals.sagepub.com/doi/10.1177/106591299705000403}.
+Sigelman, Lee, Susan Welch, Timothy Bledsoe, and Michael Combs. 1997.
+{``Police Brutality and Public Perceptions of Racial Discrimination: A
+Tale of Two Beatings.''} \emph{Political Research Quarterly} 50 (4):
+777--91. \url{https://doi.org/10.1177/106591299705000403}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-streeter2019}{}}%
-Streeter, Shea. 2019. {``The racial politics of police violence in the
-united states.''} PhD thesis.
+Streeter, Shea. 2019. {``The Racial Politics of Police Violence in the
+United States.''} PhD thesis, Palo Alto, California.
 \url{https://purl.stanford.edu/kf447bj0520}.
-
-\leavevmode\vadjust pre{\hypertarget{ref-tesler2016}{}}%
-Tesler, Michael. 2016. \emph{Post-racial or most-racial? Race and
-politics in the obama era}. Chicago ; London: University of Chicago
-Press.
 
 \leavevmode\vadjust pre{\hypertarget{ref-tesler2012}{}}%
 Tesler, Michael. 2012. {``The Spillover of Racialization into Health
 Care: How President Obama Polarized Public Opinion by Racial Attitudes
-and Race.''} \emph{American Journal of Political Science} 56(3):
-690--704.
-\url{https://onlinelibrary.wiley.com/doi/10.1111/j.1540-5907.2011.00577.x}.
+and Race.''} \emph{American Journal of Political Science} 56 (3):
+690--704. \url{https://doi.org/10.1111/j.1540-5907.2011.00577.x}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-tesler2016}{}}%
+---------. 2016. \emph{Post-Racial or Most-Racial? Race and Politics in
+the Obama Era}. Chicago Studies in American Politics. Chicago ; London:
+University of Chicago Press.
 
 \leavevmode\vadjust pre{\hypertarget{ref-thomas}{}}%
-Thomas, Deja, and Juliana Menasce Horowitz. 2020. {``Support for black
-lives matter has decreased since june but remains strong among black
-americans.''}
+Thomas, Deja, and Juliana Menasce Horowitz. 2020. {``Support for Black
+Lives Matter Has Decreased Since June but Remains Strong Among Black
+Americans.''}
 \url{https://www.pewresearch.org/fact-tank/2020/09/16/support-for-black-lives-matter-has-decreased-since-june-but-remains-strong-among-black-americans/}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-valentino2002}{}}%
 Valentino, Nicholas A., Vincent L. Hutchings, and Ismail K. White. 2002.
-{``Cues that Matter: How Political Ads Prime Racial Attitudes During
-Campaigns.''} \emph{American Political Science Review} 96(1): 75--90.
-\url{https://www.cambridge.org/core/product/identifier/S0003055402004240/type/journal_article}.
+{``Cues That Matter: How Political Ads Prime Racial Attitudes During
+Campaigns.''} \emph{American Political Science Review} 96 (1): 75--90.
+\url{https://doi.org/10.1017/S0003055402004240}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-winter2008}{}}%
-Winter, Nicholas J. G. 2008. \emph{Dangerous frames: How ideas about
-race and gender shape public opinion}. Chicago: University of Chicago
+Winter, Nicholas J. G. 2008. \emph{Dangerous Frames: How Ideas about
+Race and Gender Shape Public Opinion}. Chicago: University of Chicago
 Press.
 
 \end{CSLReferences}
+
+\part*{Appendix}
+\addcontentsline{toc}{part}{Appendix}
+\appendix
+\localtableofcontents
+
+\hypertarget{data-descriptions}{%
+\section{Data Descriptions}\label{data-descriptions}}
 
 
 

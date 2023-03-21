@@ -43,7 +43,9 @@ results <- bind_rows( white.rep.impact, black.rep.impact,hisp.rep.impact) %>%
 
 ## richer plot ---- 
 results %>% 
-  ggplot(aes(x = term, y = estimate, ymax = conf.high, ymin = conf.low, color = term != 'White')) + 
+  ggplot(aes(x = term, y = estimate, ymax = conf.high, ymin = conf.low, 
+             color = term != 'White',
+             )) + 
   geom_hline(yintercept = 0, lty = 2, alpha = 0.6) + 
   geom_pointrange(position = position_dodge(width = 0.6)) + 
   geom_label(aes(label = round(estimate,2),
@@ -52,7 +54,7 @@ results %>%
   facet_wrap(~outcome,) +
   ylab('Coefficient Estimate') + 
   xlab('Racialized Imagery of Local Police') +
-  scale_colour_viridis_d(option = 'viridis',end = 0.5) + 
+  scale_colour_viridis_d(option = 'viridis',end = 0.45) + 
   theme_sjplot() + 
   theme(legend.position = 'none',
         aspect.ratio = 0.8,
@@ -195,11 +197,14 @@ pv.inter <- function(dv){
   plot <- 
     ggplot(values,
            aes(group,predicted,ymax = conf.high, ymin = conf.low,
-                    color = x)) +
+                    shape = x, color = x)) +
     geom_pointrange(position = position_dodge(width = 0.8))  + 
     theme_light() + 
     ylab('Linear Predicted Value') + 
     xlab('White Imagery of Local Police') + 
+    scale_shape_manual(name = 'Any Police Violence in 2020',
+                       values = c(16,1),
+                       labels = c('No','Yes')) + 
     scale_color_viridis_d(option = 'viridis',end = 0.6,
                           name = 'Any Police Violence in 2020',
                           labels = c('No','Yes')) +
@@ -282,7 +287,7 @@ pv.inter2 <- function(dv){
   plot <- 
     ggplot(values,
            aes(group2,predicted,ymax = conf.high, ymin = conf.low,
-               color = x)) +
+               shape = x, color = x)) +
     annotate('rect',xmin = 0.3,xmax = 0.7, ymax = Inf, ymin = -Inf,
              alpha = 0.1) +
     geom_pointrange(position = position_dodge(width = 0.4))  + 
@@ -290,8 +295,10 @@ pv.inter2 <- function(dv){
     scale_x_continuous(breaks = c(0,0.5)) +
     ylab('Linear Predicted Value') + 
     xlab('White Imagery of Local Police') + 
-    # scale_color_manual(values = c('black','gray60','steelblue3'),name = 'Police Violence by Race') + 
-    scale_color_viridis_d(option = 'cividis',end = 0.7,name = 'Police Violence by Race') +
+    scale_shape_manual(values = c(15,16,18),
+                       name = "Police Violence by Victim's Race") + 
+    scale_color_viridis_d(option = 'viridis',end = 0.6,
+                          name = "Police Violence by Victim's Race") +
     theme(legend.position = 'bottom',
           plot.subtitle = element_text(face= 'bold'),
           aspect.ratio = 1) 
@@ -304,10 +311,11 @@ pv.increase <- pv.inter2('police_increase') +
   ggtitle(NULL,subtitle = 'Increase Police ')
 pv.decrease <- pv.inter2('police_decrease') + 
   ggtitle(NULL,subtitle = 'Decrease Police ')
+
 fig.racial.component <- 
-pv.safe + pv.increase + pv.decrease + 
-  plot_layout(guides = 'collect') &
-  theme(legend.position = 'bottom')
+  pv.safe + pv.increase + pv.decrease + 
+    plot_layout(guides = 'collect') &
+    theme(legend.position = 'bottom')
 
 fig.racial.component
 
