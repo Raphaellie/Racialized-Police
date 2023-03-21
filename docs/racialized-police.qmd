@@ -4,6 +4,7 @@ author: "Chaoyue Wang^[Chaoyue R. Wang (<chyrwang@gmail.com>, `86-177-2387-5369`
 abstract: |
   Following the murder of George Floyd, whites and blacks again diverged in their perceptions of and reactions to the reality of police violence in the United States. Compared to people of color, white Americans are more supportive of police agencies and more hesitant about reforming policing behavior even in the wake of multiple recent police-involved fatal shootings. While existing works look into experiential and cultural differences between the two groups, this study examines the role of whites’ excessive representation in police workforce that fosters a “white imagery” of the profession. Can this racialized image of police officers activate in-group favoritism among whites but push blacks away? Merging the 2020 Cooperative Election Study with administrative sampling of local police departments, I find that given whites’ share of local population constant, a higher percentage of white officers in local police department is associated with more favorable feelings of police among whites, and a greater black-white divide in police attitudes. In the presence of police violence, a whiter police workforce also makes white residents more tolerant of police officers.
 format: 
+
   pdf:
     documentclass: article
     pdf-engine: pdflatex
@@ -29,7 +30,6 @@ format:
       - \usepackage{enumitem}
       - \setlist[description]{leftmargin=\parindent,labelindent=\parindent}
       - \usepackage{etoc} \etocsettocstyle{}{}
-      # - \usepackage[toc,page]{appendix}
     fig-cap-location: bottom
     tbl-cap-location: top
     fig-pos: "tb"
@@ -52,7 +52,7 @@ format:
     toc-title: Overview
     toc-location: left
     title-block-banner: true
-
+    output-file: index.html
 # csl: ajps.csl
 editor: visual
 execute:
