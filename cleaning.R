@@ -90,7 +90,7 @@ local.race <-
   pivot_wider(names_from = var,values_from = estimate) 
 
 # Racialized Police ---- 
-rp.df <- read_csv('input/LEMAS2016/LEMAS2016-cleaned.csv')
+rp.df <- read_csv('input/LEMAS/LEMAS2016-cleaned.csv')
 
 rp.df <- rp.df %>% 
   rename_all(.,.funs = tolower) %>% 

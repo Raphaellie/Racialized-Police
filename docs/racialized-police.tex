@@ -1,5 +1,6 @@
 % Options for packages loaded elsewhere
-\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{unicode,bookmarksnumbered,
+bookmarksopen}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 %
@@ -8,7 +9,6 @@
 ]{article}
 
 \usepackage{amsmath,amssymb}
-\usepackage[]{libertine}
 \usepackage{setspace}
 \usepackage{iftex}
 \ifPDFTeX
@@ -20,6 +20,10 @@
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
+\usepackage[]{libertine}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \IfFileExists{microtype.sty}{% use microtype if available
@@ -27,7 +31,7 @@
   \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
 \usepackage{xcolor}
-\usepackage[margin = 1.2in]{geometry}
+\usepackage[margin = 1in, includefoot]{geometry}
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \setcounter{secnumdepth}{5}
 % Make \paragraph and \subparagraph free-standing
@@ -153,10 +157,12 @@
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
 \makeatother
 \makeatletter
-\@ifpackageloaded{tcolorbox}{}{\usepackage[many]{tcolorbox}}
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
 \makeatother
 \makeatletter
 \@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
 \makeatother
 \makeatletter
 \makeatother
@@ -167,30 +173,32 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
-  pdftitle={Shades of Blue: Racial Compositions of Police and Attitudes toward Policing},
+  pdftitle={Shades of Blue: Attitudinal Consequences of Racial Compositions of Police},
   pdfauthor={Chaoyue Wang},
+  pdfsubject={Racial and Ethnic Politics; Public Opinion},
+  pdfkeywords={Racial Divides; Police Brutality; Contextual Effects},
   colorlinks=true,
-  linkcolor={RoyalBlue4},
+  linkcolor={Blue4},
   filecolor={Maroon},
-  citecolor={RoyalBlue4},
-  urlcolor={DeepSkyBlue4},
+  citecolor={Blue4},
+  urlcolor={Blue4},
   pdfcreator={LaTeX via pandoc}}
 
-\title{\textbf{Shades of Blue: Racial Compositions of Police and
-Attitudes toward Policing}}
+\title{\textbf{Shades of Blue: Attitudinal Consequences of Racial
+Compositions of Police}}
 \author{Chaoyue Wang\footnote{Chaoyue R. Wang
   (\href{mailto:chyrwang@gmail.com}{\nolinkurl{chyrwang@gmail.com}},
-  \texttt{86-177-2387-5369}) is a senior student of Philosophy, Politics
-  and Economics at Yuanpei College of Peking University, Beijing, China
+  86-177-2387-5369) is a senior student of Philosophy, Politics and
+  Economics at Yuanpei College of Peking University, Beijing, China
   100871. I sincerely thank Professor Yuchen Liu of the School of
   Government for his constructive criticism during the early stage of
-  this study. Data, codes, and other documents necessary to reproduce
+  this study. Data, codes, and other materials necessary to reproduce
   the results reported in this study are openly available at
-  \url{https://github.com/raphaellie/racialized-police}.}}
-\date{March 21, 2023}
+  \url{https://github.com/raphaellie/racialized-police.}}}
+\date{April 17, 2023}
 
 \begin{document}
-\urlstyle{tt}
+\urlstyle{sf}
 
 \maketitle
 
@@ -201,7 +209,7 @@ Attitudes toward Policing}}
 \thispagestyle{empty}
 
 \begin{abstract} 
-\noindent %\onehalfspacing 
+\noindent % \onehalfspacing 
 Following the murder of George Floyd, whites and blacks again diverged
 in their perceptions of and reactions to the reality of police violence
 in the United States. Compared to people of color, white Americans are
@@ -227,17 +235,13 @@ workforce also makes white residents more tolerant of police officers.
 \end{quote}
 
 %================Begin Manuscript==================
-\newpage \clearpage \pagenumbering{arabic}\captionsetup{labelfont = bf, font = small}
-
+\newpage \clearpage \pagenumbering{arabic}\captionsetup{font = small,labelfont = bf}
 \AtBeginEnvironment{tabular}{\small}
-
 \AtBeginEnvironment{tablenotes}{\small}
 
-\urlstyle{tt}
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, breakable, borderline west={3pt}{0pt}{shadecolor}, frame hidden, sharp corners, enhanced, boxrule=0pt]}{\end{tcolorbox}}\fi
 
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, breakable, borderline west={3pt}{0pt}{shadecolor}, frame hidden, sharp corners, interior hidden, boxrule=0pt]}{\end{tcolorbox}}\fi
-
-\setstretch{1.2}
+\setstretch{1.4}
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
@@ -264,20 +268,11 @@ blacks regarding their perception of the criminal justice system
 \protect\hyperlink{ref-hurwitz2005}{Hurwitz and Peffley 2005};
 \protect\hyperlink{ref-peffley2010}{Peffley and Hurwitz 2010}).
 
-Nonetheless, popular media's impact on racial animus is theoretically
-and empirically ambiguous. On the one hand, correlations between media
-consumption and racial prejudice may simply reflect self-selection among
-individuals predisposed to those beliefs. In line with this, Dahl and
-DellaVigna (2009) examine modern violent film releases and find a
-reduction in same-day assaults due to the ``voluntary incapacitation''
-of would-be offenders. Our analysis is motivated by the fact that race
-and ethnicity alone may be relatively crude indicators of how officers
-relate to civilians or behave on the job. Why do people of distinct
-racial identities come to divergent responses to the same institution?
-Some studies have emphasized the role of lived experiences of blacks and
-whites, with the former far more intensely scrutinized and confronted by
-law enforcement agencies during their life course
-(\protect\hyperlink{ref-peffley2010}{Peffley and Hurwitz 2010};
+Why do people of distinct racial identities come to divergent responses
+to the same institution? Some studies have emphasized the role of lived
+experiences of blacks and whites, with the former far more intensely
+scrutinized and confronted by law enforcement agencies during their life
+course (\protect\hyperlink{ref-peffley2010}{Peffley and Hurwitz 2010};
 \protect\hyperlink{ref-alvarado2020}{Alvarado 2020}). Prior information
 and expectations established from these experiences set apart the ways
 black and white citizens process events of police violence
@@ -315,7 +310,7 @@ by the public as a white profession.
 
 Will a ``whiter'' police receive higher approval among the white
 population it serves? More importantly, are whites less willing to
-update their beliefs in the face of olice violence when such brutality
+update their beliefs in the face of police violence when such brutality
 is perpetrated by a police body in which whites are excessively
 represented? Built upon the framework of group-based motivated reasoning
 proposed by Jefferson, Neuner, and Pasek
@@ -416,7 +411,7 @@ positive link between white presence in police and white perceptions of
 policing:
 
 \begin{description}
-\item[H1 (Perception Hypothesis)]
+\item[H1]
 More representation of whites in local police workforce should lead to
 more favorable perceptions of police among white residents.
 \end{description}
@@ -444,7 +439,7 @@ response to police violence is contingent upon the degree to which
 police workforce are perceived as white:
 
 \begin{description}
-\item[H2 (Defense Hypothesis)]
+\item[H2]
 When local police officers present a stronger white imagery, the
 occurrence of police violence will be less effective in persuading
 whites into more skeptical attitudes toward police.
@@ -467,14 +462,14 @@ defense should be most overt when the overall situation is most
 racialized:
 
 \begin{description}
-\item[H2a (Racialization Hypothesis)]
+\item[H2a]
 The moderation effect of police's white imagery on white response to
 police violence will be strongest when the cases of such violence are
 racialized regarding their victims.
 \end{description}
 
-\hypertarget{empirical-strategy}{%
-\section{Empirical Strategy}\label{empirical-strategy}}
+\hypertarget{data-and-measurement}{%
+\section{Data and Measurement}\label{data-and-measurement}}
 
 \hypertarget{attitudes-on-policing}{%
 \subsection{Attitudes on Policing}\label{attitudes-on-policing}}
@@ -535,9 +530,9 @@ endorse reducing the number of police officers. Consistent with our
 perception in the real world, such differences on police attitudes are
 all significant at the level of 0.05.
 
-\hypertarget{racial-imagery-of-local-police}{%
-\subsection{Racial Imagery of Local
-Police}\label{racial-imagery-of-local-police}}
+\hypertarget{racial-compositions-of-local-police}{%
+\subsection{Racial Compositions of Local
+Police}\label{racial-compositions-of-local-police}}
 
 By the time when this study was conducted, there is no data source that
 captures the universe of racial compositions of all police agencies in
@@ -628,8 +623,9 @@ LEMAS are consistent with the journalist and anecdotal evidence that
 police employment is not representative of the population it serves,
 forging a white imagery.
 
-\hypertarget{local-police-violence}{%
-\subsection{Local Police Violence}\label{local-police-violence}}
+\hypertarget{occurrence-of-local-police-violence}{%
+\subsection{Occurrence of Local Police
+Violence}\label{occurrence-of-local-police-violence}}
 
 There have been no successful efforts by governmental agencies at either
 local or federal level to systematically document police-involved
@@ -657,8 +653,8 @@ than one percent of all observations. For this reason, I measure the
 level of police violence on a binary basis, with 1 that there is at
 least one case of police violence recorded in a place.
 
-\hypertarget{results}{%
-\section{Results}\label{results}}
+\hypertarget{analysis}{%
+\section{Analysis}\label{analysis}}
 
 \hypertarget{white-attitudes-on-policing}{%
 \subsection{White Attitudes on
@@ -730,15 +726,15 @@ Attitudes }\tabularnewline
 \toprule
   & Police Felt as Safe & Increase Police & Decrease Police\\
 \midrule
-Racial Divide & 0.130*** & 0.033** & -0.055***\\
- & (0.007) & (0.010) & (0.010)\\
-White Imagery of Police & -0.090*** & -0.006 & -0.010\\
- & (0.019) & (0.028) & (0.029)\\
-Racial Divide × White Imagery & 0.120*** & 0.020 & -0.041\\
- & (0.023) & (0.035) & (0.036)\\
+Racial Divide & 0.091*** & -0.009 & -0.016\\
+ & (0.007) & (0.011) & (0.011)\\
+White Imagery of Police & -0.119*** & -0.087* & 0.022\\
+ & (0.024) & (0.038) & (0.038)\\
+Racial Divide × White Imagery & 0.157*** & 0.099* & -0.086+\\
+ & (0.028) & (0.044) & (0.045)\\
 \midrule
-Observations & 39551 & 39597 & 39589\\
-R squared & 0.061 & 0.001 & 0.005\\
+Observations & 23680 & 23709 & 23705\\
+R squared & 0.149 & 0.089 & 0.073\\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}
@@ -802,16 +798,44 @@ police violence will be less effective in persuading whites into more
 skeptical attitudes toward police when local police officers present a
 stronger white imagery. Table~\ref{tbl-reaction} shows the moderating
 effect of racial imagery of police on white people's reaction to local
-police violence. Quite intuitively, the occurrence of police violence
-during has a negative impact on white's perception of policing, making
-them less likely to feel police as safe or support increasing police
-funding, and more likely to consider cutting police funding in support
-of other public services. But this attitudinal reaction of whites to
-police violence is strongly moderated by the racial imagery of local
-police, with the interaction term significantly going against the sign
-of the main term. As local police present more of a white imagery, the
+police violence. Intuitively, the occurrence of police violence during
+has a negative impact on white's perception of policing, making them
+less likely to feel police as safe or support increasing police funding,
+and more likely to consider cutting police funding in support of other
+public services. But this attitudinal reaction of whites to police
+violence is strongly moderated by the racial imagery of local police,
+with the interaction term significantly going against the sign of the
+main term. As local police present more of a white imagery, the
 happening of police violence is less effective in pushing whites toward
 more negative views on policing.
+
+\hypertarget{tbl-reaction}{}
+\begin{table}
+\caption{\label{tbl-reaction}Racial Imagery of Local Police Moderates Racial Reaction to Police
+Violence }\tabularnewline
+
+\centering
+\begin{threeparttable}
+\begin{tabular}[t]{lccc}
+\toprule
+  & Feel Police as Safe & Increase Police & Decrease Police\\
+\midrule
+Any Police Violence in 2020 & -0.036*** & -0.037*** & 0.057***\\
+ & (0.006) & (0.010) & (0.011)\\
+White Imagery of Police & 0.011 & -0.021 & -0.034\\
+ & (0.015) & (0.024) & (0.025)\\
+Police Violence × White Imagery & 0.044+ & 0.035 & -0.093*\\
+ & (0.023) & (0.038) & (0.038)\\
+\midrule
+Observations & 21926 & 21941 & 21939\\
+R squared & 0.122 & 0.119 & 0.095\\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\item Note: Non-Hispanic white respondents only, 2020 CES. Robust standard errors in parentheses. + p $<$ 0.1, * p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
 
 Plotting linear predicted values of policing attitudes based on results
 in Table~\ref{tbl-reaction}, Figure~\ref{fig-reaction-mod} communicates
@@ -831,34 +855,6 @@ indicating a diminishing of the persuasion effect of police violence
 occurrence. Overall, greater white presence in police workforce renders
 whites of a place more resistant to updating their attitudes on policing
 even in the face of the occurrence of police-involved fatal shootings.
-
-\hypertarget{tbl-reaction}{}
-\begin{table}
-\caption{\label{tbl-reaction}Racial Imagery of Local Police Moderates Racial Reaction to Police
-Violence }\tabularnewline
-
-\centering
-\begin{threeparttable}
-\begin{tabular}[t]{lccc}
-\toprule
-  & Police Felt as Safe & Increase Police & Decrease Police\\
-\midrule
-Any Police Violence in 2020 & -0.047*** & -0.057*** & 0.074***\\
- & (0.008) & (0.013) & (0.013)\\
-White Imagery of Police & 0.006 & -0.009 & -0.014\\
- & (0.018) & (0.029) & (0.029)\\
-Police Violence × White Imagery & 0.087** & 0.078+ & -0.142**\\
- & (0.028) & (0.045) & (0.045)\\
-\midrule
-Observations & 26016 & 26039 & 26036\\
-R squared & 0.004 & 0.002 & 0.003\\
-\bottomrule
-\end{tabular}
-\begin{tablenotes}
-\item Note: Non-Hispanic white respondents only, 2020 CES. Robust standard errors in parentheses. + p $<$ 0.1, * p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001.
-\end{tablenotes}
-\end{threeparttable}
-\end{table}
 
 \begin{figure}[tb]
 
@@ -910,19 +906,19 @@ Police Violence }\tabularnewline
 \toprule
   & Police Felt as Safe & Increase Police & Decrease Police\\
 \midrule
-PV Whites & -0.043*** & -0.039* & 0.056***\\
- & (0.010) & (0.016) & \vphantom{1} (0.016)\\
-PV POC & -0.051*** & -0.077*** & 0.093***\\
- & (0.010) & (0.016) & (0.016)\\
-White Imagery of Police & 0.005 & -0.013 & -0.010\\
- & (0.018) & (0.029) & (0.029)\\
-White Imagery × PV Whites & 0.065+ & -0.003 & -0.075\\
- & (0.036) & (0.057) & (0.057)\\
-White Imagery × PV POC & 0.109** & 0.162** & -0.210***\\
- & (0.035) & (0.058) & (0.058)\\
+PV Whites & -0.033*** & -0.032** & 0.041**\\
+ & (0.008) & (0.012) & (0.013)\\
+PV POC & -0.039*** & -0.042** & 0.076***\\
+ & (0.008) & (0.013) & (0.013)\\
+White Imagery of Police & 0.011 & -0.022 & -0.033\\
+ & (0.015) & (0.024) & (0.025)\\
+White Imagery × PV Whites & -0.017 & -0.046 & 0.021\\
+ & (0.030) & (0.049) & (0.050)\\
+White Imagery × PV POC & 0.090** & 0.099* & -0.193***\\
+ & (0.028) & (0.047) & (0.047)\\
 \midrule
-Observations & 26016 & 26039 & 26036\\
-R squared & 0.004 & 0.002 & 0.003\\
+Observations & 21926 & 21941 & 21939\\
+R squared & 0.123 & 0.119 & 0.095\\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}
@@ -1276,8 +1272,8 @@ Press.
 
 \end{CSLReferences}
 
-\part*{Appendix}
-% \addcontentsline{toc}{part}{Appendix}
+\newpage \part*{Appendix}
+\addcontentsline{toc}{part}{Appendix}
 \appendix
 % \localtableofcontents
 

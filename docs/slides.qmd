@@ -1,0 +1,164 @@
+---
+title: "Shades of Blue"
+subtitle: Attitudinal Consequences of Racial Compositions of Police
+author: "Chaoyue R. Wang"
+institute: Independent Researcher
+date: last-modified
+date-format: long
+fig-dpi: 200
+format: 
+  beamer:
+    pdf-engine: pdflatex
+    theme: metropolis
+    themeoptions: block = fill, progressbar = frametitle
+    innertheme: circles
+    fontfamily: AlegreyaSans
+    fontsize: 10pt
+    section-titles: true
+    cap-location: bottom
+    tbl-colwidths: false
+  revealjs:
+    # theme: simple
+    width: 1200
+    height: 900
+    slide-number: c/t
+    incremental: true
+keep-tex: true
+execute: 
+  echo: false
+  cache: false
+editor: visual
+---
+
+# Race, Representation and Policing
+
+## Race and Policing in the U.S.
+
+-   **H1**: More representation of whites in local police workforce should lead to more favorable perceptions of police among white residents.
+
+-   **H2**: When local police officers present a stronger white imagery, the occurrence of police violence will be less effective in persuading whites into more skeptical attitudes toward police.
+
+-   **H2a**: The moderation effect of police's white imagery on white response to police violence will be strongest when the cases of such violence are racialized regarding their victims.
+
+```{r}
+#| label: setup
+#| warning: false
+
+# library(tidyverse)
+# library(estimatr)
+# library(broom)
+# library(kableExtra)
+# library(interactions)
+library(ggplot2)
+library(patchwork)
+# library(usmap)
+library(modelsummary)
+# library(sjPlot)
+# library(ggeffects)
+# library(lemon)
+library(ggpubr)
+
+load('final objects.RData')
+options(modelsummary_format_numeric_latex = "plain")
+options("modelsummary_stars_note" = FALSE)
+gm <- tibble::tribble(
+  ~raw,        ~clean,          ~fmt,
+  "nobs",      "Observations",             0,
+  "r.squared", "R squared", 3)
+```
+
+# Data Sources
+
+## Attitudes towards Policing
+
+```{r}
+#| label: fig-attitudes
+#| fig-cap: "**Attitudes toward Police by Race.** "
+#| fig-width: 10
+#| fig-asp: 0.33 
+#| fig-pos: tb
+fig.attitudes
+```
+
+## Racial Compositions of Police
+
+```{r}
+#| label: fig-lemas-cover
+#| fig-cap: "**Geographic Coverage of 2016 LEMAS at the County Level.** Counties are colored blue where at least one police department within its jurisdiction is surveyed in 2016 LEMAS."
+# #| fig-height: 2.7
+# #| fig-pos: tb
+fig.lemas.cover2
+```
+
+## Police Brutality
+
+-   There have been no successful efforts by governmental agencies at either local or federal level to systematically document police-involved homicides.
+
+-   Existing literature addressing police violence has usually turned to data voluntarily collected by advocacy groups, the most used of which is that of Mapping Police Violence project.
+
+-   Drawing data points from other reliable sources of police-involved shootings and collecting its unique data through diverse channels including social media, local newspaper accounts, and police reports, the Mapping Police Violence project has by far the most detailed and accurate record of fatal shootings by police since 2013.
+
+# Results
+
+## Attitudes towards Police and Policing
+
+```{r}
+#| label: fig-baseline
+#| fig-cap: "**The Estiamted Relationship between Racial Imagery of Local Police and White Attitudes on Policing.** Each point indicates the coefficient estimate of the realted racial imagery on policing attitudes out of an invididual regression among white respondents in 2020 CES. 95% confidence intervals are shown by the range."
+#| fig-width: 9
+#| fig-height: 7
+
+fig.baseline
+```
+
+## Racial Divides on Policing
+
+```{r}
+#| label: tbl-divides
+#| tbl-cap: "Racial Imagery of Local Police Moderates Racial Divides on Policing Attitudes"
+
+# modelsummary(
+#   models.divides,
+#   # output = 'latex',
+#   stars = TRUE, 
+#   threeparttable = TRUE, 
+#   gof_map = gm, 
+#   coef_map = c(
+#     "white1" = "Racial Divide",
+#     "white_rep" = 'White Imagery of Police',
+#     "white_rep:white1" = 'Racial Divide × White Imagery'), 
+#   notes = "Note: All respondents in 2020 CES. Robust standard errors in parentheses. + p < 0.1, * p < 0.05, ** p < 0.01, *** p < 0.001." )
+```
+
+## Racial Divides on Policing
+
+```{r}
+#| label: fig-divides
+#| fig-cap: "**Racial Imagery of Local Police Moderates Racial Divide regarding Attitudes on Policing.** Each plot shows the racial divide on the outcome policing attitude as the white imagery of local police increases. Ranges of racial imagery where racial divide diminishes are colored red and indicated by blue reference lines. The thicker black bar represents the observed range of white imagery of police in our data. "
+#| fig-width: 9
+#| fig-height: 4
+
+fig.divides
+```
+
+## Reactions to Police Violence
+
+```{r}
+#| label: fig-reaction-mod
+#| fig-cap: "**Racial Imagery of Local Police Moderates Whites' Attitudinal Response to Police Violence.** At the each level of racial imagery, whether there police violence happended in 2020 is indicated by the black-green scheme. "
+#| fig-width: 10
+#| fig-asp: 0.33
+
+fig.reaction.mod
+```
+
+## Examine the Racial Dynamics
+
+```{r}
+#| label: fig-racial-component
+#| fig-cap: "**Moderating Effect of Racial Imagery Depends upon Racial Groups Victimized by Police Violence.** At the each level of racial imagery, the racial groups impacted by local police violence in 2020 are indicated by the black-to-yellow scheme."
+#| fig-width: 11
+#| fig-asp: 0.35
+
+fig.racial.component
+```

@@ -1,12 +1,13 @@
 clear all
 
-cd "/Users/chaoyuewang/Desktop/Racialized Police/input/CCES20 attitudes"
 
 *** Load CCES data
 
 use "/Users/chaoyuewang/Downloads/Surveys/CCES/CCES20.dta"
 
 *** Political and Demographic variables
+
+tostring caseid, replace
 
 replace pid7 = . if pid7 > 7
 replace ideo5 = . if ideo5 > 5
@@ -56,10 +57,10 @@ rename CC20_334h police_sue
 
 keep weight pid7 ideo5 income gender educ birthyr age ///
 race white black hispan asian ///
-fips county state statefips zipcode ///
+fips county state statefips zipcode caseid ///
 police_*
 
-outsheet using "cces attitudes.csv", replace comma nolabel
+outsheet using "/Users/chaoyuewang/Documents/Projects/Racialized Police/input/CCES20 attitudes/cces attitudes.csv", replace comma nolabel
 
 
 
